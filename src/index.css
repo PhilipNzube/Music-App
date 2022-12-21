@@ -4,7 +4,42 @@ body {
   overflow-y: hidden;
 }
 
+#Container{
+  display: none;
+}
+
 @media only screen and (min-width:1170px){
+  #OverlayBottom{
+    position: relative;
+    bottom: -10%;
+  }
+  #LOADING{
+    text-shadow: 0px 0px 10px;
+    font-weight: bold;
+    position: fixed;
+    top:50%;
+    left:35%;
+    font-family: OCR A Std, monospace;
+    font-size: 250%; 
+    color:rgb(109, 2, 2);
+    z-index: 1;
+    opacity: 1;
+    animation-name: FadeInOut;
+    animation-delay: 0.4s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes FadeInOut {
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opcaity:1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
 #SongsContainer {
   position: relative;
   margin-left: 6.5%;
@@ -15,6 +50,7 @@ body {
   animation-name: SlideIn;
   animation-duration: 1.5s;
   animation-iteration-count: 1;
+  padding-bottom: 8%;
 }
 
 @keyframes SlideIn {
@@ -1246,8 +1282,30 @@ body {
   left: 0;
   right: 0;
   background: rgb(247, 243, 243); 
-  z-index: 0;
+  z-index: 1;
+  overflow-x: hidden;
 }
+
+#SongsTopBar{
+  background: rgb(109, 2, 2);
+  height: 40%;
+}
+
+#SongsBackButton{
+  position: relative;
+  left: 0%;
+  Top:0px;
+  height: 10%;
+  width: 5%;
+  background: rgb(109, 2, 2) url("./Images/BackButton.png") 10px 3px no-repeat;
+  background-size: 50%;
+}
+
+#SongsBackButton:hover{
+  background: rgba(109, 2, 2, 0.555) url("./Images/BackButton.png") 10px 3px no-repeat;
+  background-size: 50%; 
+}
+
 }
 
 
@@ -1255,6 +1313,38 @@ body {
 
 
 @media only screen and (max-width:1169px){
+  #OverlayBottom{
+    position: relative;
+    bottom: -10%;
+  }
+  #LOADING{
+    text-shadow: 0px 0px 10px;
+    font-weight: bold;
+    position: fixed;
+    top:50%;
+    left:35%;
+    font-family: OCR A Std, monospace;
+    font-size: 250%; 
+    color:rgb(109, 2, 2);
+    z-index: 1;
+    opacity: 1;
+    animation-name: FadeInOut;
+    animation-delay: 0.4s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes FadeInOut {
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opcaity:1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
   #SongsContainer {
     position: relative;
     margin-left: 6.5%;
@@ -1265,6 +1355,7 @@ body {
     animation-name: SlideIn;
     animation-duration: 1.5s;
     animation-iteration-count: 1;
+    padding-bottom: 10%;
   }
   
   @keyframes SlideIn {
@@ -2514,6 +2605,7 @@ body {
     animation-name: SlideIn;
     animation-duration: 1.5s;
     animation-iteration-count: 1;
+    padding-bottom: 10%;
   }
   
   @keyframes SlideIn {
@@ -2551,6 +2643,7 @@ body {
     animation-duration: 1.5s;
     animation-iteration-count: 1;
   }
+  
   
   #MusicArt:hover {
     cursor: pointer;
@@ -2698,6 +2791,12 @@ body {
   #Search:hover {
     box-shadow: 0px 0px 50px rgb(0, 0, 0);
   }
+
+  #VolumeControls {
+  position: relative;
+  right:10%;
+  bottom: 170px;
+}
   
   #VolumeImg {
     position: relative;
@@ -2926,6 +3025,34 @@ body {
 
 
 @media only screen and (max-width:940px){
+  #LOADING{
+    text-shadow: 0px 0px 10px;
+    font-weight: bold;
+    position: fixed;
+    top:50%;
+    left:30%;
+    font-family: OCR A Std, monospace;
+    font-size: 250%; 
+    color:rgb(109, 2, 2);
+    z-index: 1;
+    opacity: 1;
+    animation-name: FadeInOut;
+    animation-delay: 0.4s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes FadeInOut {
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opcaity:1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
   #SongsContainer {
     position: relative;
     margin-left: 6.5%;
@@ -2936,6 +3063,7 @@ body {
     animation-name: SlideIn;
     animation-duration: 1.5s;
     animation-iteration-count: 1;
+    padding-bottom: 13%;
   }
   
   @keyframes SlideIn {
@@ -2993,11 +3121,11 @@ body {
   #PauseButton {
     display: none;
     position: relative;
-    left: 50%;
+    left: 49%;
     bottom: 70px;
-    height: 48px;
+    height: 44px;
     width: 4.5%;
-    background: url("./Images/PauseButton.png") 0 2px no-repeat;
+    background: url("./Images/PauseButton.png") 0 0px no-repeat;
     background-size: contain;
     z-index: 1;
   }
@@ -3028,7 +3156,7 @@ body {
   #VolumeControls {
     position: relative;
     bottom: 170px;
-    right: 0%;
+    right: 10%;
   }
 
   #MuteVolumeImg {
@@ -3210,6 +3338,33 @@ body {
 
 
 @media only screen and (max-width:730px){
+  #LOADING{
+    text-shadow: 0px 0px 10px;
+    font-weight: bold;
+    position: fixed;
+    top:50%;
+    left:28%;
+    font-family: OCR A Std, monospace;
+    font-size: 250%; 
+    color:rgb(109, 2, 2);
+    z-index: 1;
+    opacity: 1;
+    animation-name: FadeInOut;
+    animation-delay: 0.4s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes FadeInOut {
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opcaity:1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
 
   #SongsContainer {
     position: relative;
@@ -3221,6 +3376,7 @@ body {
     animation-name: SlideIn;
     animation-duration: 1.5s;
     animation-iteration-count: 1;
+    padding-bottom: 22%;
   }
   
   @keyframes SlideIn {
@@ -3281,11 +3437,11 @@ body {
   #PauseButton {
     display: none;
     position: relative;
-    left: 50%;
-    bottom: 70px;
-    height: 48px;
+    left: 52%;
+    bottom: 69px;
+    height: 44px;
     width: 6%;
-    background: url("./Images/PauseButton.png") 0 2px no-repeat;
+    background: url("./Images/PauseButton.png") 0 0px no-repeat;
     background-size: contain;
     z-index: 1;
   }
@@ -4043,6 +4199,7 @@ body {
     animation-name: SlideIn;
     animation-duration: 1.5s;
     animation-iteration-count: 1;
+    padding-bottom: 22%;
   }
   
   @keyframes SlideIn {
@@ -4104,10 +4261,10 @@ body {
     display: none;
     position: relative;
     left: 83%;
-    bottom: 70px;
-    height: 48px;
+    bottom: 69px;
+    height: 44px;
     width: 6%;
-    background: url("./Images/PauseButton.png") 0 2px no-repeat;
+    background: url("./Images/PauseButton.png") 0 0px no-repeat;
     background-size: contain;
     z-index: 1;
   }
@@ -4454,7 +4611,33 @@ body {
 
 
 @media only screen and (max-width:580px){
+  #LOADING{
+    text-shadow: 0px 0px 10px;
+    font-weight: bold;
+    position: fixed;
+    top:50%;
+    left:20%;
+    font-family: OCR A Std, monospace;
+    font-size: 250%; 
+    color:rgb(109, 2, 2);
+    z-index: 1;
+    opacity: 1;
+    animation-name: FadeInOut;
+    animation-delay: 0.4s;
+    animation-iteration-count: infinite;
+  }
 
+  @keyframes FadeInOut {
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opcaity:1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
   #SongsContainer {
     position: relative;
     margin-top: 50%;
@@ -4464,6 +4647,7 @@ body {
     animation-name: SlideIn;
     animation-duration: 1.5s;
     animation-iteration-count: 1;
+    padding-bottom: 22%;
   }
   
   @keyframes SlideIn {
@@ -4642,7 +4826,6 @@ body {
     position: relative;
     left: 13.8%;
     bottom: -14px;
-    height: 38px;
     width: 7.7%;
     background: rgb(146, 140, 140) url("./Images/Play\ Button\ Png\ For\ Player.png") 0px 0px no-repeat;
     background-size: contain;
@@ -4866,6 +5049,11 @@ body {
     bottom: 80px;
     left: 80%;
     cursor: pointer;
+  }
+
+  #Search{
+    visibility: hidden;
+    display: none;
   }
 
   #LeftSideBar {
@@ -5387,17 +5575,277 @@ body {
 
 
 @media only screen and (max-width:425px){
+  #OverlayMusicArt {
+    position: relative;
+    left: 1.5%;
+    bottom: -350px;
+    height: 110px;
+    width: 30%;
+    background: rgb(196, 188, 188) url("./Images/JuicePoster.jpg") 0 0 no-repeat;
+    background-size: cover;
+    z-index: 1;
+  }
 
+  #OverlayVolumeImg {
+    position: relative;
+    left: 35.8%;
+    bottom: 125px;
+    height: 38px;
+    width: 8.8%;
+    background: rgb(146, 140, 140) url("./Images/Volume.png") 0px 0px no-repeat;
+    background-size: contain;
+    border-radius: 50px;
+  }
+  
+  #OverlayVolumeImg:hover {
+    background:rgb(146, 140, 140, 0.459) url("./Images/Volume.png") 0px 0px no-repeat;
+    background-size: contain;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px;
+    cursor: pointer;
+  }
+  
+  #OverlayMuteVolumeImg {
+    display: none;
+    position: relative;
+    left: 35.8%;
+    bottom: 125px;
+    height: 38px;
+    width: 8.8%;
+    background: rgb(146, 140, 140) url("./Images/MuteVolume.png") 0px 3px no-repeat;
+    background-size: contain;
+    border-radius: 50px;
+  }
+  
+  #OverlayMuteVolumeImg:hover {
+    background:rgb(146, 140, 140, 0.459) url("./Images/MuteVolume.png") 0px 3px no-repeat;
+    background-size: contain;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px;
+    cursor: pointer;
+  }
+  
+  #OverlayPlayerControls {
+    position: relative;
+    bottom: 80px;
+    right: 3%;
+  }
+  
+  #OverlaySeekSlider {
+    position: relative;
+    left: 2%;
+    top: 45px;
+    width: 90%;
+    cursor: pointer;
+  }
+  
+  #OverlayPlayButton {
+    position: relative;
+    left: 15.8%;
+    bottom: -14px;
+    width: 8.9%;
+    background: rgb(146, 140, 140) url("./Images/Play\ Button\ Png\ For\ Player.png") 0px 0px no-repeat;
+    background-size: contain;
+    z-index: 1;
+    border-radius: 50px;
+  }
+  
+  #OverlayPlayButton:hover {
+    background: rgb(146, 140, 140, 0.459) url("./Images/Play\ Button\ Png\ For\ Player.png") 0px 0px no-repeat;
+    background-size: contain;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px;
+    cursor: pointer;
+  }
+  
+  #OverlayPauseButton {
+    display: none;
+    position: relative;
+    left: 15.8%;
+    bottom: -14px;
+    height: 38px;
+    width: 8.8%;
+    background: rgb(146, 140, 140) url("./Images/PauseButton.png") 0px 0px no-repeat;
+    background-size: contain;
+    z-index: 1;
+    border-radius: 50px;
+  }
+  
+  #OverlayPauseButton:hover {
+    background:rgb(146, 140, 140, 0.459) url("./Images/PauseButton.png") 0px 0 no-repeat;
+    background-size: contain;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px;
+    cursor: pointer;
+  }
+  
+  #OverlaySeek {
+    position: relative;
+    bottom: 120px;
+  }
+
+  #OverlaySeekSlider {
+    position: relative;
+    left: -2%;
+    top: 45px;
+    width: 78%;
+    cursor: pointer;
+  }
+  
+  #OverlaySeekSlider::-webkit-slider-runnable-track {
+    height: 2.5px;
+    background: rgb(146, 140, 140);
+    z-index: 1;
+  }
+  
+  #OverlaySeekSlider::-webkit-slider-thumb {
+    position: relative;
+    bottom: 7px;
+    z-index: 1;
+  }
+  
+  #OverlayCurrentTime {
+    position: relative;
+    top: 50px;
+    left: 4.5%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(156, 151, 151);
+  }
+  
+  #OverlaySeekDuration {
+    position: relative;
+    top: 50px;
+    left: 85%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(156, 151, 151);
+  }
+  
+  #OverlayPrevious {
+    position: relative;
+    left: 4.3%;
+    bottom: -90px;
+    height: 38px;
+    width: 8.8%;
+    background: rgb(146, 140, 140) url("./Images/PreviousSeek.png") 5px 8px no-repeat;
+    background-size: 58%;
+    z-index: 1;
+    border-radius: 50px;
+  }
+  
+  #OverlayPrevious:hover {
+    background: rgb(146, 140, 140, 0.459) url("./Images/PreviousSeek.png") 5px 8px no-repeat;
+    background-size: 58%;
+    border-radius: 2px;
+    box-shadow: 0px 0px 3px;
+    cursor: pointer;
+  }
+  
+  #OverlayNext {
+    position: relative;
+    left: 27%;
+    bottom: -52px;
+    height: 38px;
+    width: 8.8%;
+    background: rgb(146, 140, 140) url("./Images/NextSeek.png") 7px 8px no-repeat;
+    background-size: 58%;
+    z-index: 1;
+    border-radius: 50px;
+  }
+  
+  #OverlayNext:hover {
+    background: rgba(146, 140, 140, 0.459) url("./Images/NextSeek.png") 7px 8px no-repeat;
+    background-size: 58%;
+    z-index: 1;
+    border-radius: 2px;
+    box-shadow: 0px 0px 3px;
+    cursor: pointer;
+  }
+
+
+#OverlayBottom{
+  position: relative;
+  bottom: 20%;
+}
+
+  #LOADING{
+    text-shadow: 0px 0px 10px;
+    font-weight: bold;
+    position: fixed;
+    top:50%;
+    left:5%;
+    font-family: OCR A Std, monospace;
+    font-size: 250%; 
+    color:rgb(109, 2, 2);
+    z-index: 1;
+    opacity: 1;
+    animation-name: FadeInOut;
+    animation-delay: 0.4s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes FadeInOut {
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opcaity:1;
+  }
+  100%{
+    opacity: 0;
+  }
+    
+  }
   #SongsContainer {
     position: relative;
-    margin-top: 60%;
+    margin-top: 50%;
     background-color: rgb(247, 243, 243);
     width: 90%;
     height: 100%;
     animation-name: SlideIn;
     animation-duration: 1.5s;
     animation-iteration-count: 1;
+    padding-bottom: 22%;
   }
+
+  /* #TopBar {
+    position: fixed;
+    left: 5%;
+    bottom: 72%;
+    width: 70%;
+    height: 30%;
+    backdrop-filter: blur(0.2em);
+    z-index: 1;
+  } */
+
+  /* #LeftSideBar {
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    background: rgb(196, 188, 188);
+    height: 120%;
+    width: 4%;
+  } */
+  
+  /* #TopBar {
+    position: fixed;
+    left: 6.5%;
+    bottom: 70%;
+    width: 90%;
+    height: 30%;
+    backdrop-filter: blur(0.2em);
+    z-index: 1;
+  } */
+
+
+  /* #BottomPlayerUIContainer {
+    position: fixed;
+    bottom: 22.3%;
+    left: 0%;
+    background: rgb(109, 2, 2);
+    height: 100px;
+    width: 78%;
+    z-index: 1;
+  } */
   
   @keyframes SlideIn {
     0% {
@@ -5514,10 +5962,37 @@ body {
 
 
 @media only screen and (max-width:375px){
+  #LOADING{
+    text-shadow: 0px 0px 10px;
+    font-weight: bold;
+    position: fixed;
+    top:50%;
+    left:5%;
+    font-family: OCR A Std, monospace;
+    font-size: 220%; 
+    color:rgb(109, 2, 2);
+    z-index: 1;
+    opacity: 1;
+    animation-name: FadeInOut;
+    animation-delay: 0.4s;
+    animation-iteration-count: infinite;
+  }
 
+  @keyframes FadeInOut {
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opcaity:1;
+  }
+  100%{
+    opacity: 0;
+  }
+    
+  }
   #SongsContainer {
     position: relative;
-    margin-top: 70%;
+    margin-top: 60%;
     background-color: rgb(247, 243, 243);
     width: 90%;
     height: 100%;
@@ -5576,11 +6051,11 @@ body {
   #PauseButton {
     display: none;
     position: relative;
-    left: 80%;
-    bottom: 70px;
-    height: 48px;
+    left: 79.5%;
+    bottom: 69px;
+    height: 40px;
     width: 8%;
-    background: url("./Images/PauseButton.png") 0 2px no-repeat;
+    background: url("./Images/PauseButton.png") 0 0px no-repeat;
     background-size: contain;
     z-index: 1;
   }
@@ -5641,10 +6116,10 @@ body {
   
   #OverlayVolumeImg {
     position: relative;
-    left: 30%;
+    left: 38%;
     bottom: 125px;
     height: 38px;
-    width: 7.7%;
+    width: 10%;
     background: rgb(146, 140, 140) url("./Images/Volume.png") 0px 0px no-repeat;
     background-size: contain;
     border-radius: 50px;
@@ -5661,10 +6136,10 @@ body {
   #OverlayMuteVolumeImg {
     display: none;
     position: relative;
-    left: 25%;
+    left: 38%;
     bottom: 125px;
     height: 38px;
-    width: 7.7%;
+    width: 10%;
     background: rgb(146, 140, 140) url("./Images/MuteVolume.png") 0px 3px no-repeat;
     background-size: contain;
     border-radius: 50px;
@@ -5694,10 +6169,9 @@ body {
   
   #OverlayPlayButton {
     position: relative;
-    left: 13.8%;
+    left: 16.8%;
     bottom: -14px;
-    height: 38px;
-    width: 7.7%;
+    width: 10%;
     background: rgb(146, 140, 140) url("./Images/Play\ Button\ Png\ For\ Player.png") 0px 0px no-repeat;
     background-size: contain;
     z-index: 1;
@@ -5715,10 +6189,10 @@ body {
   #OverlayPauseButton {
     display: none;
     position: relative;
-    left: 13.8%;
+    left: 16.8%;
     bottom: -14px;
     height: 38px;
-    width: 7.7%;
+    width: 10%;
     background: rgb(146, 140, 140) url("./Images/PauseButton.png") 0px 0px no-repeat;
     background-size: contain;
     z-index: 1;
@@ -5740,7 +6214,7 @@ body {
 
   #OverlaySeekSlider {
     position: relative;
-    left: -1%;
+    left: -3%;
     top: 45px;
     width: 78%;
     cursor: pointer;
@@ -5779,7 +6253,7 @@ body {
     left: 4.3%;
     bottom: -90px;
     height: 38px;
-    width: 7.7%;
+    width: 10%;
     background: rgb(146, 140, 140) url("./Images/PreviousSeek.png") 5px 8px no-repeat;
     background-size: 58%;
     z-index: 1;
@@ -5796,10 +6270,10 @@ body {
   
   #OverlayNext {
     position: relative;
-    left: 23%;
+    left: 29%;
     bottom: -52px;
     height: 38px;
-    width: 7.7%;
+    width: 10%;
     background: rgb(146, 140, 140) url("./Images/NextSeek.png") 7px 8px no-repeat;
     background-size: 58%;
     z-index: 1;
@@ -5814,6 +6288,12 @@ body {
     box-shadow: 0px 0px 3px;
     cursor: pointer;
   }
+
+
+#OverlayBottom{
+  position: relative;
+  bottom: 10%;
+}
 
   #OverlayMusicArt {
     position: relative;
@@ -5913,6 +6393,519 @@ body {
     position: relative;
     bottom: 130px;
     right: 15%;
+  }
+
+  #VolumeSlider {
+    position: relative;
+    bottom: 80px;
+    left: 80%;
+    cursor: pointer;
+  }
+
+  #LeftSideBar {
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    background: rgb(247, 243, 243);
+    height: 120%;
+    width: 4%;
+  }
+  
+  #SongName {
+    position: relative;
+    top: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    max-width: 25ch;
+    font-weight: 500;
+  }
+  
+  #ArtistName {
+    position: relative;
+    left: 0%;
+    top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    max-width: 50ch;
+    font-size:70%;
+  }
+  
+  #AlbumName {
+    position: relative;
+    left: 23%;
+    top: -13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    max-width: 50ch;
+    font-size:70%;
+  }
+  
+  #Date {
+    display: none;
+    position: relative;
+    left: 66%;
+    top: -48px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    max-width: 20ch;
+  }
+  
+  #Genre {
+    display: none;
+    position: relative;
+    left: 72%;
+    top: -70px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    max-width: 20ch;
+  }
+  
+  #Duration {
+    position: relative;
+    left: 90%;
+    top: -44px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    max-width: 20ch;
+  }
+  
+}
+
+
+
+
+
+
+@media only screen and (max-width:320px){
+  #LOADING{
+    text-shadow: 0px 0px 10px;
+    font-weight: bold;
+    position: fixed;
+    top:50%;
+    left:5%;
+    font-family: OCR A Std, monospace;
+    font-size: 200%; 
+    color:rgb(109, 2, 2);
+    z-index: 1;
+    opacity: 1;
+    animation-name: FadeInOut;
+    animation-delay: 0.4s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes FadeInOut {
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opcaity:1;
+  }
+  100%{
+    opacity: 0;
+  }
+    
+  }
+
+  #SongsContainer {
+    position: relative;
+    margin-top: 70%;
+    background-color: rgb(247, 243, 243);
+    width: 90%;
+    height: 100%;
+    animation-name: SlideIn;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    padding-bottom: 28%;
+  }
+  
+  @keyframes SlideIn {
+    0% {
+      transform: translateY(0%);
+    }
+  
+    50% {
+      transform: translateY(80%);
+    }
+  
+    100% {
+      transform: translateY(0%);
+    }
+  }
+  
+  #ArtistsContainer {
+    margin-left: 6.5%;
+    margin-top: 80%;
+    background-color: rgb(247, 243, 243);
+    width: 90%;
+    height: 100%;
+    animation-name: SlideIn;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+  }
+  
+  #AlbumsContainer {
+    margin-left: 6.5%;
+    margin-top: 80%;
+    background-color: rgb(247, 243, 243);
+    width: 90%;
+    height: 100%;
+    animation-name: SlideIn;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+  }
+  
+  #PlayButton {
+    position: relative;
+    left: 70.5%;
+    bottom: 69px;
+    height: 40px;
+    width: 15%;
+    background: url("./Images/Play\ Button\ Png\ For\ Player.png") 0 0px no-repeat;
+    background-size: contain;
+    z-index: 1;
+  }
+  
+  #PauseButton {
+    display: none;
+    position: relative;
+    left: 70.5%;
+    bottom: 69px;
+    height: 40px;
+    width: 15%;
+    background: url("./Images/PauseButton.png") 0 0px no-repeat;
+    background-size: contain;
+    z-index: 1;
+  }
+  
+  #Previous {
+    position: relative;
+    left: 60%;
+    bottom: 0px;
+    height: 30px;
+    width: 7%;
+    background: url("./Images/PreviousSeek.png") 0px 0 no-repeat;
+    background-size: contain;
+    z-index: 1;
+  }
+  
+  #Next {
+    position: relative;
+    left: 86%;
+    bottom: 30px;
+    height: 30px;
+    width: 7%;
+    background: url("./Images/NextSeek.png") 0px 0 no-repeat;
+    background-size: contain;
+    z-index: 1;
+  }
+  
+  #VolumeImg {
+    position: relative;
+    left: 74%;
+    bottom: 52px;
+    height: 30px;
+    width: 6%;
+    background: url("./Images/Volume.png") 0px 2px no-repeat;
+    background-size: contain;
+  }
+  
+  #MuteVolumeImg {
+    display: none;
+    position: relative;
+    left: 74%;
+    bottom: 52px;
+    height: 30px;
+    width: 6%;
+    background: url("./Images/MuteVolume.png") 0px 5px no-repeat;
+    background-size: contain;
+  }
+  
+  #SongName {
+    position: relative;
+    top: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    max-width: 20ch;
+    font-weight: 500;
+  }
+
+  
+  #OverlayVolumeImg {
+    position: relative;
+    left: 45.8%;
+    bottom: 125px;
+    height: 38px;
+    width: 12%;
+    background: rgb(146, 140, 140) url("./Images/Volume.png") 0px 0px no-repeat;
+    background-size: contain;
+    border-radius: 50px;
+  }
+  
+  #OverlayVolumeImg:hover {
+    background:rgb(146, 140, 140, 0.459) url("./Images/Volume.png") 0px 0px no-repeat;
+    background-size: contain;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px;
+    cursor: pointer;
+  }
+  
+  #OverlayMuteVolumeImg {
+    display: none;
+    position: relative;
+    left: 45.8%;
+    bottom: 125px;
+    height: 38px;
+    width: 12%;
+    background: rgb(146, 140, 140) url("./Images/MuteVolume.png") 0px 3px no-repeat;
+    background-size: contain;
+    border-radius: 50px;
+  }
+  
+  #OverlayMuteVolumeImg:hover {
+    background:rgb(146, 140, 140, 0.459) url("./Images/MuteVolume.png") 0px 3px no-repeat;
+    background-size: contain;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px;
+    cursor: pointer;
+  }
+  
+  #OverlayPlayerControls {
+    position: relative;
+    bottom: 80px;
+    right: 3%;
+  }
+  
+  #OverlaySeekSlider {
+    position: relative;
+    left: 2%;
+    top: 45px;
+    width: 90%;
+    cursor: pointer;
+  }
+  
+  #OverlayPlayButton {
+    position: relative;
+    left: 18.8%;
+    bottom: -14px;
+    width: 12%;
+    background: rgb(146, 140, 140) url("./Images/Play\ Button\ Png\ For\ Player.png") 0px 0px no-repeat;
+    background-size: contain;
+    z-index: 1;
+    border-radius: 50px;
+  }
+  
+  #OverlayPlayButton:hover {
+    background: rgb(146, 140, 140, 0.459) url("./Images/Play\ Button\ Png\ For\ Player.png") 0px 0px no-repeat;
+    background-size: contain;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px;
+    cursor: pointer;
+  }
+  
+  #OverlayPauseButton {
+    display: none;
+    position: relative;
+    left: 18.8%;
+    bottom: -14px;
+    height: 38px;
+    width: 12%;
+    background: rgb(146, 140, 140) url("./Images/PauseButton.png") 0px 0px no-repeat;
+    background-size: contain;
+    z-index: 1;
+    border-radius: 50px;
+  }
+  
+  #OverlayPauseButton:hover {
+    background:rgb(146, 140, 140, 0.459) url("./Images/PauseButton.png") 0px 0 no-repeat;
+    background-size: contain;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px;
+    cursor: pointer;
+  }
+  
+  #OverlaySeek {
+    position: relative;
+    bottom: 120px;
+  }
+
+  #OverlaySeekSlider {
+    position: relative;
+    left: -5%;
+    top: 45px;
+    width: 78%;
+    cursor: pointer;
+  }
+  
+  #OverlaySeekSlider::-webkit-slider-runnable-track {
+    height: 2.5px;
+    background: rgb(146, 140, 140);
+    z-index: 1;
+  }
+  
+  #OverlaySeekSlider::-webkit-slider-thumb {
+    position: relative;
+    bottom: 7px;
+    z-index: 1;
+  }
+  
+  #OverlayCurrentTime {
+    position: relative;
+    top: 50px;
+    left: 4.5%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(156, 151, 151);
+  }
+  
+  #OverlaySeekDuration {
+    position: relative;
+    top: 50px;
+    left: 84%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(156, 151, 151);
+  }
+  
+  #OverlayPrevious {
+    position: relative;
+    left: 4.3%;
+    bottom: -90px;
+    height: 38px;
+    width: 12%;
+    background: rgb(146, 140, 140) url("./Images/PreviousSeek.png") 5px 8px no-repeat;
+    background-size: 58%;
+    z-index: 1;
+    border-radius: 50px;
+  }
+  
+  #OverlayPrevious:hover {
+    background: rgb(146, 140, 140, 0.459) url("./Images/PreviousSeek.png") 5px 8px no-repeat;
+    background-size: 58%;
+    border-radius: 2px;
+    box-shadow: 0px 0px 3px;
+    cursor: pointer;
+  }
+  
+  #OverlayNext {
+    position: relative;
+    left: 33.8%;
+    bottom: -52px;
+    height: 38px;
+    width: 12%;
+    background: rgb(146, 140, 140) url("./Images/NextSeek.png") 7px 8px no-repeat;
+    background-size: 58%;
+    z-index: 1;
+    border-radius: 50px;
+  }
+  
+  #OverlayNext:hover {
+    background: rgba(146, 140, 140, 0.459) url("./Images/NextSeek.png") 7px 8px no-repeat;
+    background-size: 58%;
+    z-index: 1;
+    border-radius: 2px;
+    box-shadow: 0px 0px 3px;
+    cursor: pointer;
+  }
+
+
+#OverlayBottom{
+  position: relative;
+  bottom: 10%;
+}
+
+  
+  #SongsViewOverlay{
+    display: none;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgb(247, 243, 243); 
+    z-index: 0;
+  } 
+
+  #MusicArt {
+    position: relative;
+    bottom: 0px;
+    height: 100%;
+    width: 30%;
+    background: rgb(109, 2, 2) 0 0 no-repeat;
+    background-size: cover;
+    z-index: 1;
+  }
+  
+  #MusicArt:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.479);
+    box-shadow: 0px 0px rgba(0, 0, 0, 0.356);
+  }
+
+  #SongDetails {
+    position: relative;
+    top: 10px;
+    left: 10%;
+  }
+  
+  #SongTitle {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 140%;
+    color: rgb(156, 151, 151);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+  }
+  
+  
+  #SongArtist {
+    position: relative;
+    bottom: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 99%;
+    font-weight: bold;
+    color: rgb(156, 151, 151);
+    white-space: nowrap;
+  }
+
+  #SeekSlider {
+    position: relative;
+    left: -3%;
+    top: 45px;
+    width: 70%;
+    cursor: pointer;
+  }
+
+  #SeekDuration {
+    position: relative;
+    top: 50px;
+    left: 80%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(156, 151, 151);
+  }
+  
+  #Seek {
+    position: relative;
+    bottom: 100px;
+  }
+
+  #CurrentTime {
+    position: relative;
+    top: 50px;
+    left: 5%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(156, 151, 151);
+    z-index: 1;
+  }
+  
+  #VolumeControls {
+    position: relative;
+    bottom: 130px;
+    right: 25%;
   }
 
   #VolumeSlider {
@@ -6114,8 +7107,8 @@ body {
   
   #Duration {
     position: relative;
-    left: 92%;
-    top: -50px;
+    left: 90%;
+    top: -44px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
@@ -6127,7 +7120,7 @@ body {
     position: relative;
     right: 15px;
     top: 20px;
-    width: 33%;
+    width: 50%;
     height: 140px;
     border-radius: 50%;
     background: rgb(196, 188, 188) url("./Images/NoUserIcon.png") 0 0 no-repeat;
@@ -6137,9 +7130,9 @@ body {
   
   #AArtist2 {
     position: relative;
-    left: 33%;
+    left: 53%;
     top: -135px;
-    width: 33%;
+    width: 50%;
     height: 140px;
     border-radius: 50%;
     background: rgb(196, 188, 188) url("./Images/NoUserIcon.png") 0 0 no-repeat;
@@ -6148,9 +7141,9 @@ body {
   
   #AArtist3 {
     position: relative;
-    left: 69%;
-    top: -290px;
-    width: 33%;
+    left: -5%;
+    top: -78px;
+    width: 50%;
     height: 140px;
     border-radius: 50%;
     background: rgb(196, 188, 188) url("./Images/NoUserIcon.png") 0 0 no-repeat;
@@ -6159,9 +7152,9 @@ body {
   
   #AArtist4 {
     position: relative;
-    left: -1%;
+    left: 53%;
     top: -235px;
-    width: 33%;
+    width: 50%;
     height: 140px;
     border-radius: 50%;
     background: rgb(196, 188, 188) url("./Images/NoUserIcon.png") 0 0 no-repeat;
@@ -6200,7 +7193,7 @@ body {
     position: relative;
     right: 15px;
     top: 50px;
-    width: 33%;
+    width: 50%;
     height: 140px;
     border-radius: 50%;
     background: rgb(196, 188, 188) url("./Images/NoUserIcon.png") 0 0 no-repeat;
@@ -6209,9 +7202,9 @@ body {
   
   #BArtist2 {
     position: relative;
-    left: 33%;
+    left: 53%;
     top: -105px;
-    width: 33%;
+    width: 50%;
     height: 140px;
     border-radius: 50%;
     background: rgb(196, 188, 188) url("./Images/NoUserIcon.png") 0 0 no-repeat;
@@ -6252,7 +7245,7 @@ body {
   #Album1 {
     position: relative;
     top: 15px;
-    width: 33%;
+    width: 48%;
     height: 160px;
     background: rgb(156, 151, 151) url("./Images/DreamVilleCover.jpg") 0 0 no-repeat;
     background-size: cover;
@@ -6261,8 +7254,8 @@ body {
   #Album2 {
     position: relative;
     top: -145px;
-    left: 35%;
-    width: 33%;
+    left: 51%;
+    width: 48%;
     height: 160px;
     background: rgb(156, 151, 151) url("./Images/DJKhalidCover.jpg") 0 0 no-repeat;
     background-size: cover;
@@ -6270,9 +7263,9 @@ body {
   
   #Album3 {
     position: relative;
-    top: -305px;
-    left: 70%;
-    width: 33%;
+    top: -15px;
+    left: 0%;
+    width: 48%;
     height: 160px;
     background: rgb(156, 151, 151) url("./Images/JuicePoster.jpg") 0 0 no-repeat;
     background-size: cover;
@@ -6281,8 +7274,8 @@ body {
   #Album4 {
     position: relative;
     top: -175px;
-    left: 0%;
-    width: 33%;
+    left: 51%;
+    width: 48%;
     height: 160px;
     background: rgb(156, 151, 151) url("./Images/BurnaBoyCover.jpg") 0 0 no-repeat;
     background-size: cover;
@@ -6290,9 +7283,9 @@ body {
   
   #Album5 {
     position: relative;
-    top: -335px;
-    left: 35%;
-    width: 33%;
+    top: -70px;
+    left: 0%;
+    width: 48%;
     height: 160px;
     background: rgb(156, 151, 151) url("./Images/NBACover.jpg") 0 0 no-repeat;
     background-size: cover;
@@ -6300,9 +7293,9 @@ body {
   
   #Album6 {
     position: relative;
-    top: -495px;
-    left: 70%;
-    width: 33%;
+    top: -230px;
+    left: 51%;
+    width: 48%;
     height: 160px;
     background: rgb(156, 151, 151) url("./Images/GunnaCover.jpg") 0 0 no-repeat;
     background-size: cover;
@@ -6310,8 +7303,8 @@ body {
   
   #Album7 {
     position: relative;
-    top: -390px;
-    width: 33%;
+    top: -120px;
+    width: 48%;
     left: 0%;
     height: 160px;
     background: rgb(156, 151, 151) url("./Images/PostMaloneCover.jpg") 0 0 no-repeat;
@@ -6320,9 +7313,9 @@ body {
   
   #Album8 {
     position: relative;
-    top: -550px;
-    left: 35%;
-    width: 33%;
+    top: -280px;
+    left: 51%;
+    width: 48%;
     height: 160px;
     background: rgb(156, 151, 151) url("./Images/DrakeCover.jpg") 0 0 no-repeat;
     background-size: cover;
@@ -6330,9 +7323,9 @@ body {
   
   #Album9 {
     position: relative;
-    top: -710px;
-    left: 70%;
-    width: 33%;
+    top: -150px;
+    left: 0%;
+    width: 48%;
     height: 160px;
     background: rgb(156, 151, 151) url("./Images/NFCover.jpg") 0 0 no-repeat;
     background-size: cover;
@@ -6340,9 +7333,9 @@ body {
   
   #Album10 {
     position: relative;
-    top: -600px;
-    left: 0%;
-    width: 33%;
+    top: -310px;
+    left: 53%;
+    width: 48%;
     height: 160px;
     background: rgb(156, 151, 151) url("./Images/Trippie\ Red\ Cover.jpg") 0 0 no-repeat;
     background-size: cover;

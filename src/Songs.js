@@ -1,6 +1,11 @@
 import React from 'react';
 
 export default function Songs() {
+    const PlaySong2 = () => {
+        document.getElementById("SongTitle").innerHTML = "Girl Of My Dreams";
+        document.getElementById("SongArtist").innerHTML = "Juice WRLD";
+}
+
     return (
         <>
             <div id="SongsContainer">
@@ -15,7 +20,7 @@ export default function Songs() {
                     </div>
                 </div>
 
-                <div id="Song2">
+                <div id="Song2" onClick={PlaySong2}>
                     <div id="p1">
                         <div id="SongName">Girl Of My Dreams</div>
                         <div id="ArtistName">Juice WRLD</div>
@@ -135,7 +140,6 @@ export default function Songs() {
                         <div id="Duration">3:37</div>
                     </div>
                 </div>
-
 
             </div>
         </>

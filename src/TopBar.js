@@ -23,6 +23,14 @@ export default function TopBar({ STATE }) {
             document.getElementById("Songs").style.textDecorationThickness = "4px";
             document.getElementById("Songs").style.textDecorationSkipInk = "none";
             document.getElementById("Songs").style.textUnderlineOffset = "10%";
+            // document.getElementById("BottomPlayerUIContainer").style.bottom = "22.3%";
+            // document.getElementById("BottomPlayerUIContainer").style.left = "0%";
+            // document.getElementById("BottomPlayerUIContainer").style.width = "77.7%";
+            // document.getElementById("TopBar").style.bottom = "71.4%";
+            // document.getElementById("TopBar").style.left = "5.2%";
+            // document.getElementById("TopBar").style.width = "69.8%";
+            document.getElementById("SongsContainer").style.overflowX = "hidden";
+            // document.getElementById("SongsContainer").style.paddingBottom = "7%";
         } else if (document.getElementById("ArtistsContainer") != null) {
             ArtistsNow = true;
             AlbumsNow = false;
@@ -39,6 +47,12 @@ export default function TopBar({ STATE }) {
             document.getElementById("Artists").style.textDecorationThickness = "4px";
             document.getElementById("Artists").style.textDecorationSkipInk = "none";
             document.getElementById("Artists").style.textUnderlineOffset = "10%";
+            // document.getElementById("BottomPlayerUIContainer").style.bottom = "0%";
+            // document.getElementById("BottomPlayerUIContainer").style.right = "0%";
+            // document.getElementById("BottomPlayerUIContainer").style.width = "100%";
+            // document.getElementById("TopBar").style.bottom = "70%";
+            // document.getElementById("TopBar").style.left = "6.5%";
+            // document.getElementById("TopBar").style.width = "90%";
         } else if (document.getElementById("AlbumsContainer") != null) {
             AlbumsNow = true;
             ArtistsNow = false;
@@ -55,6 +69,12 @@ export default function TopBar({ STATE }) {
             document.getElementById("Albums").style.textDecorationThickness = "4px";
             document.getElementById("Albums").style.textDecorationSkipInk = "none";
             document.getElementById("Albums").style.textUnderlineOffset = "10%";
+            // document.getElementById("BottomPlayerUIContainer").style.bottom = "0%";
+            // document.getElementById("BottomPlayerUIContainer").style.right = "0%";
+            // document.getElementById("BottomPlayerUIContainer").style.width = "100%";
+            // document.getElementById("TopBar").style.bottom = "70%";
+            // document.getElementById("TopBar").style.left = "6.5%";
+            // document.getElementById("TopBar").style.width = "90%";
         }
         setTimeout(() => {
             document.body.style.overflowY = "scroll";

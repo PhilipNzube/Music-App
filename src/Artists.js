@@ -1,13 +1,32 @@
 import React from 'react';
 
 export default function Artists() {
+    // var jsmediatags = require("jsmediatags");
+    // // var jsmediatags = window.jsmediatags;
+    // jsmediatags.read("./Songs/FeelAlone.mp3", {
+    //     onSuccess: (tag) => {
+    //         var tags = tag.tags;
+    //         alert(tags.artists + "_" + tags.title + "," + tags.album);
+    //         console.log("WORK");
+    //         console.log(tag);
+    //     },
+    //     onError: (error) => {
+    //         console.log(':(', error.type, error.info);
+    //     }
+    // });
     const OverlaySongsView = () => {
         document.getElementById("SongsViewOverlay").style.display = "block";
+        document.getElementById("ArtistsContainer").style.display = "none"
+    }
+
+    const CloseOverlay = () => {
+        document.getElementById("SongsViewOverlay").style.display = "none";
+        document.getElementById("ArtistsContainer").style.display = "block";
     }
     return (
         <>
             <div id="SongsViewOverlay">
-
+                <div id="SongsTopBar"><div id="SongsBackButton" onClick={CloseOverlay}></div></div>
             </div>
             <div id="ArtistsContainer">
                 <div id="AWrapper">

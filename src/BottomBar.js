@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Song1 from './Songs/FeelAlone.mp3'
+import Song2 from './Songs/Underrated.mp3'
 
 export default function BottomBar() {
     // setTimeout(() => {
@@ -60,15 +61,23 @@ export default function BottomBar() {
         return minutes + ":" + seconds;
     }
 
-    useEffect(() => {
-        setTimeout(() => {
-            document.getElementById("CurrentTime").innerHTML = ConvertElaspedTime(document.getElementById("Song1").currentTime);
-            document.getElementById("SeekDuration").innerHTML = ConvertElaspedTime(document.getElementById("Song1").duration);
-        }, 1200);
-        if (document.getElementById("Song1").paused) {
-            // console.log("ghost");
-        }
-    })
+    // useEffect(() => {
+        
+    //     setTimeout(() => {
+    //         document.getElementById("CurrentTime").innerHTML = ConvertElaspedTime(document.getElementById("Song1").currentTime);
+    //         document.getElementById("SeekDuration").innerHTML = ConvertElaspedTime(document.getElementById("Song1").duration);
+    //     }, 1500);
+    //     if (document.getElementById("Song1").paused) {
+    //         // console.log("ghost");
+    //     }
+    // })
+
+    const ShowDetails = () => {
+        document.getElementById("LOADING").style.display = "none";
+        document.getElementById("Container").style.display = "block";
+        document.getElementById("CurrentTime").innerHTML = ConvertElaspedTime(document.getElementById("Song1").currentTime);
+        document.getElementById("SeekDuration").innerHTML = ConvertElaspedTime(document.getElementById("Song1").duration);
+    }
 
     const PlayButClick = () => {
         cancelAnimationFrame(rAF);
@@ -193,11 +202,42 @@ export default function BottomBar() {
 
     }
 
+    const FTU = (e) => {
+        var jsmediatags = require("jsmediatags");
+            console.log('File ' + ':  ' + e.target.files);
+            jsmediatags.read("http://localhost:3000/static/media/FeelAlone.048a0626fc01586d2f59.mp3", {
+                onSuccess: function (tag) {
+                    var tags = tag.tags;
+                    console.log(tags);
+                    document.getElementById("SongTitle").innerHTML = tags.title;
+              },
+              onError: function(error) {
+                console.log("fucking hell" + error);
+              }
+            });
+
+        // var jsmediatags = require("jsmediatags");
+        //   for (var i = 0; i < e.target.files.length; i++) {
+        //     console.log('File ' + (i + 1) + ':  ' + e.target.files[i]);
+        //     jsmediatags.read(e.target.files[i], {
+        //         onSuccess: function (tag) {
+        //             var tags = tag.tags;
+        //             console.log(tags);
+        //             document.getElementById("SongTitle").innerHTML = tags.title;
+        //       },
+        //       onError: function(error) {
+        //         console.log(error);
+        //       }
+        //     });
+        //   }
+}
+
     return (
         <>
-            <audio id="Song1" type="audio/mpeg" preload="metadata" src={Song1} onEnded={EndAudio}></audio>
+            <audio id="Song1" type="audio/mpeg" preload="metadata" src={Song1} onLoadedData={ShowDetails}  onEnded={EndAudio}></audio>
             <div id="Overlay">
                 <div id="BackButton" onClick={ShowOverlay}></div>
+                <div id="OverlayBottom">
                 <div id="OverlayMusicArt" onClick={ShowOverlay}><div id="OverlaySongDetails"><div id="OverlaySongTitle">Feel Alone</div><br />
                     <div id="OverlaySongArtist">Juice WRLD</div></div></div>
                 <div id="OverlayMainPlayerControls">
@@ -216,8 +256,12 @@ export default function BottomBar() {
                         <div id="OverlayMuteVolumeImg" onClick={UnMute}></div>
                     </div>
                 </div>
+                </div>
             </div>
             <div id="BottomPlayerUIContainer">
+            <form>
+	<input name="filesToUpload[]" id="filesToUpload" type="file" onChange={FTU} multiple/>
+</form>
                 {/* <input id="test" type="range"/> */}
                 <div id="MusicArt" onClick={ShowOverlay}><div id="SongDetails"><div id="SongTitle">Feel Alone</div><br />
                     <div id="SongArtist">Juice WRLD</div></div></div>
