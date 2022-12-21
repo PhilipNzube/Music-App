@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/static/css/main.b108723b.css",
-    "main.js": "/static/js/main.ea55c9bc.js",
+    "main.css": "/static/css/main.38acab4a.css",
+    "main.js": "/static/js/main.4d34a1a9.js",
     "static/media/FeelAlone.mp3": "/static/media/FeelAlone.048a0626fc01586d2f59.mp3",
+    "static/media/Underrated.mp3": "/static/media/Underrated.6371c20b9e9b163942ae.mp3",
     "static/media/PauseButton.png": "/static/media/PauseButton.dc0699633a71f4eee247.png",
     "static/media/Play Button Png For Player.png": "/static/media/Play Button Png For Player.fd6db6b317f58816649f.png",
     "static/media/DreamVilleCover.jpg": "/static/media/DreamVilleCover.17bea29535379ae7aeb1.jpg",
@@ -22,11 +23,11 @@
     "static/media/NBACover.jpg": "/static/media/NBACover.67ef1d09d0f3ad1a48ae.jpg",
     "static/media/BackButton.png": "/static/media/BackButton.f472b14156a4ad1932a3.png",
     "index.html": "/index.html",
-    "main.b108723b.css.map": "/static/css/main.b108723b.css.map",
-    "main.ea55c9bc.js.map": "/static/js/main.ea55c9bc.js.map"
+    "main.38acab4a.css.map": "/static/css/main.38acab4a.css.map",
+    "main.4d34a1a9.js.map": "/static/js/main.4d34a1a9.js.map"
   },
   "entrypoints": [
-    "static/css/main.b108723b.css",
-    "static/js/main.ea55c9bc.js"
+    "static/css/main.38acab4a.css",
+    "static/js/main.4d34a1a9.js"
   ]
 }
