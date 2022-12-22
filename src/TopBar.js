@@ -6,6 +6,10 @@ export default function TopBar({ STATE }) {
     var SongsNow = true;
     var ArtistsNow = false;
     var AlbumsNow = false;
+    var Skip = 0;
+    const songsclick = () => {
+        console.log("Clicked");
+    }
     useEffect(() => {
         if (document.getElementById("SongsContainer") != null) {
             SongsNow = true;
@@ -161,6 +165,143 @@ export default function TopBar({ STATE }) {
             document.getElementById("Albums").style.color = "rgb(0, 0, 0, 0.555)";
         }
     }
+
+    let rAF = null;
+    const whilePlaying = () => {
+        document.getElementById("CurrentTime").innerHTML = ConvertElaspedTime(document.getElementById("Song1").currentTime);
+        document.getElementById("SeekDuration").innerHTML = ConvertElaspedTime(document.getElementById("Song1").duration);
+        document.getElementById("SeekSlider").max = Math.floor(document.getElementById("Song1").duration);
+        document.getElementById("SeekSlider").value = document.getElementById("Song1").currentTime;
+        document.getElementById("OverlayCurrentTime").innerHTML = ConvertElaspedTime(document.getElementById("Song1").currentTime);
+        document.getElementById("OverlaySeekDuration").innerHTML = ConvertElaspedTime(document.getElementById("Song1").duration);
+        document.getElementById("OverlaySeekSlider").max = Math.floor(document.getElementById("Song1").duration);
+        document.getElementById("OverlaySeekSlider").value = document.getElementById("Song1").currentTime;
+        rAF = requestAnimationFrame(whilePlaying);
+    }
+
+    const ConvertElaspedTime = (inputSeconds) => {
+        var seconds = Math.floor(inputSeconds % 60);
+        if (seconds < 10) {
+            seconds = "0" + seconds;
+        }
+        var minutes = Math.floor(inputSeconds / 60);
+        return minutes + ":" + seconds;
+    }
+
+    const PlayButClick = () => {
+        cancelAnimationFrame(rAF);
+        document.getElementById("PlayButton").style.display = "none";
+        document.getElementById("PauseButton").style.display = "block";
+        document.getElementById("OverlayPlayButton").style.display = "none";
+        document.getElementById("OverlayPauseButton").style.display = "block";
+        document.getElementById("Song1").play();
+        requestAnimationFrame(whilePlaying);
+    }
+
+
+    const FTU = (e) => {
+        var jsmediatags = require("jsmediatags");
+        for (var i = 0; i < e.target.files.length; i++) {
+            console.log('File ' + (i + 1) + ':  ' + e.target.files[i]);
+            var Index = i;
+            var StoreE = e.target.files;
+            console.log(Index);
+            console.log(StoreE[Index]);
+            jsmediatags.read(e.target.files[i], {
+                onSuccess: function (tag) {
+                    Skip += 1;
+                    var tags = tag.tags;
+                    console.log(tags);
+                    const songsContainer = document.getElementById("SongsContainer");
+                    // document.getElementById("Song1").src = URL.createObjectURL(e.target.files[i]);
+                    const parent = document.createElement('div');
+                    parent.id = "Song1";
+                    if (Skip == 2) {
+                        parent.style.background = "rgb(247, 243, 243)";
+                        Skip = 0;
+                    } else {
+                        parent.style.background = "rgb(196, 188, 188)";
+                    }
+                    parent.addEventListener('click', () => {
+                                                for (var i = 0; i < e.target.files.length; i++) {
+                        var Index = i;
+                        var StoreE = e.target.files;
+                        console.log(Index);
+                                                    console.log(StoreE[Index]);
+                                                    if (StoreE[Index].type.indexOf('audio/') !== 0) {
+                            console.warn('not an audio file');
+                            return;
+                        }
+                        const reader = new FileReader();
+                        reader.onload = function () {
+                            var str = this.result;
+                            console.log(StoreE[Index]);
+                            document.getElementById("Song1").src = str;
+                            PlayButClick();
+                            // localStorage.setItem("Song", str);
+                            // console.log(str);
+                            // document.getElementById("Song1").src = `data:${e.target.files.format}; base64, ${window.btoa(str)}`;
+                            // console.log(`data:${e.target.files.format}; base64, ${window.btoa(str)}`);
+                            // var aud = new Audio(str);
+                            // aud.play();
+                            // document.getElementById("Song1").play();
+                        }
+                        reader.readAsDataURL(StoreE[Index]);
+                    }
+
+                        // URL.revokeObjectURL(e.target.files[0]);
+                        const { data } = tags.picture;
+                        let base64String = "";
+                        for (var i = 0; i < data.length; i++) {
+                            base64String += String.fromCharCode(data[i]);
+                        }
+                        // document.getElementById("MusicArt").style.background = "rgb(196, 188, 188) url(`data:${data.format}; base64, ${window.btoa(base64String)}`) 0 0 no-repeat";
+                        document.getElementById("MA").src = `data:${data.format}; base64, ${window.btoa(base64String)}`;
+                        // document.getElementById("Song1").src = URL.createObjectURL(e.target.files[i]);
+                        // console.log(`data:${data.format}; base64, ${window.btoa(base64String)}`);
+                        document.getElementById("SongTitle").innerHTML = tags.title;
+                        document.getElementById("SongArtist").innerHTML = tags.artist;
+                    });
+                    const child1 = document.createElement('div');
+                    child1.id = "p1";
+                    const child2 = document.createElement('div');
+                    child2.id = "SongName";
+                    const child3 = document.createElement('div');
+                    child3.id = "ArtistName";
+                    const child4 = document.createElement('div');
+                    child4.id = "AlbumName";
+                    const child5 = document.createElement('div');
+                    child5.id = "Date";
+                    const child6 = document.createElement('div');
+                    child6.id = "Genre";
+                    const child7 = document.createElement('div');
+                    child7.id = "Duration";
+
+                    songsContainer.appendChild(parent);
+                    parent.appendChild(child1);
+                    child1.appendChild(child2);
+                    child1.appendChild(child3);
+                    child1.appendChild(child4);
+                    child1.appendChild(child5);
+                    child1.appendChild(child6);
+                    child1.appendChild(child7);
+                    child2.innerHTML = tags.title;
+                    child3.innerHTML = tags.artist;
+                    child4.innerHTML = tags.album;
+                    child5.innerHTML = tags.year;
+                    child6.innerHTML = tags.genre;
+                    setTimeout(() => {
+                        child7.innerHTML = ConvertElaspedTime(document.getElementById("Song1").duration);
+                    }, 1000);
+                },
+                onError: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+    }
+
+
     return (
         <>
             <div id="TopBar">
@@ -172,6 +313,7 @@ export default function TopBar({ STATE }) {
                             <span id="Albums" onMouseLeave={AlbumsNotHover} onMouseOver={AlbumsHover} onClick={AlbumsClick}>Albums</span>
                         </p>
                         <hr id="hr1" />
+                        <input name="filesToUpload[]" id="filesToUpload" type="file" onChange={FTU} multiple />
                         <hr id="hr2" />
                     </div>
                 </div>

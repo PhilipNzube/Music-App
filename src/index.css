@@ -99,6 +99,14 @@ body {
   z-index: 1;
 }
 
+#MA{
+  position: relative;
+  bottom: 287px;
+  width: 10%;
+  height: 100%;
+  z-index: 1;
+}
+
 #MusicArt {
   position: relative;
   bottom: 0px;
@@ -196,7 +204,7 @@ body {
 
 #hr2 {
   position: relative;
-  bottom: -20px;
+  bottom: 10px;
 }
 
 #Song1 {

@@ -9,7 +9,7 @@ export default function Songs() {
     return (
         <>
             <div id="SongsContainer">
-                <div id="Song1">
+                {/* <div id="Song1">
                     <div id="p1">
                         <div id="SongName">Feel Alone</div>
                         <div id="ArtistName">Juice WRLD</div>
@@ -33,7 +33,7 @@ export default function Songs() {
 
                 <div id="Song3">
                     <div id="p1">
-                        {/* <div id="songnamewrapper"> */}<div id="SongName">Until The Plug Comes Back Around</div>
+                        <div id="SongName">Until The Plug Comes Back Around</div>
                         <div id="ArtistName">Juice WRLD</div>
                         <div id="AlbumName">Fighting Demons</div>
                         <div id="Date">2021</div>
@@ -139,7 +139,7 @@ export default function Songs() {
                         <div id="Genre">HipHop/Rap</div>
                         <div id="Duration">3:37</div>
                     </div>
-                </div>
+                </div> */}
 
             </div>
         </>
