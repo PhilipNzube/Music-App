@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.9fab128a.css",
-    "main.js": "/static/js/main.8b00d9f6.js",
+    "main.js": "/static/js/main.5a3d5c83.js",
     "static/media/FeelAlone.mp3": "/static/media/FeelAlone.048a0626fc01586d2f59.mp3",
     "static/media/PauseButton.png": "/static/media/PauseButton.dc0699633a71f4eee247.png",
     "static/media/Play Button Png For Player.png": "/static/media/Play Button Png For Player.fd6db6b317f58816649f.png",
@@ -24,10 +24,10 @@
     "static/media/BackButton.png": "/static/media/BackButton.f472b14156a4ad1932a3.png",
     "index.html": "/index.html",
     "main.9fab128a.css.map": "/static/css/main.9fab128a.css.map",
-    "main.8b00d9f6.js.map": "/static/js/main.8b00d9f6.js.map"
+    "main.5a3d5c83.js.map": "/static/js/main.5a3d5c83.js.map"
   },
   "entrypoints": [
     "static/css/main.9fab128a.css",
-    "static/js/main.8b00d9f6.js"
+    "static/js/main.5a3d5c83.js"
   ]
 }
