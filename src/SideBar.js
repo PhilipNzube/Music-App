@@ -23,7 +23,7 @@ export default function SideBar() {
             <div id="LeftSideBar" >
                 <div id="Sandwich" onClick={ShowSideBar}></div>
                 <div id="Search" onClick={ShowSideBar}></div>
-                <input id="SearchBox" type="text" placeholder='Search' />
+                <input id="SearchBox" type="text" placeholder='Search For Latest Songs' />
                 <div id="SearchImg"></div>
             </div>
         </>

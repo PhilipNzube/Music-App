@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function TopBar({ STATE }) {
@@ -7,14 +7,16 @@ export default function TopBar({ STATE }) {
     var ArtistsNow = false;
     var AlbumsNow = false;
     var Skip = 0;
-    const songsclick = () => {
-        console.log("Clicked");
-    }
+    var AllowSeekDur = false;
+    localStorage.setItem("SE", false);
     useEffect(() => {
-        if (document.getElementById("SongsContainer") != null) {
+        if (document.getElementById("SongsContainer").style.display != "none") {
             SongsNow = true;
             ArtistsNow = false;
             AlbumsNow = false;
+            document.getElementById("SongsContainer").style.display = "block";
+            document.getElementById("ArtistsContainer").style.display = "none";
+            document.getElementById("AlbumsContainer").style.display = "none";
             document.getElementById("Artists").style.color = "rgb(0, 0, 0, 0.555)";
             document.getElementById("Artists").style.textDecoration = "none";
 
@@ -35,7 +37,7 @@ export default function TopBar({ STATE }) {
             // document.getElementById("TopBar").style.width = "69.8%";
             document.getElementById("SongsContainer").style.overflowX = "hidden";
             // document.getElementById("SongsContainer").style.paddingBottom = "7%";
-        } else if (document.getElementById("ArtistsContainer") != null) {
+        } else if (document.getElementById("ArtistsContainer").style.display != "none") {
             ArtistsNow = true;
             AlbumsNow = false;
             SongsNow = false;
@@ -57,7 +59,7 @@ export default function TopBar({ STATE }) {
             // document.getElementById("TopBar").style.bottom = "70%";
             // document.getElementById("TopBar").style.left = "6.5%";
             // document.getElementById("TopBar").style.width = "90%";
-        } else if (document.getElementById("AlbumsContainer") != null) {
+        } else if (document.getElementById("AlbumsContainer").style.display != "none") {
             AlbumsNow = true;
             ArtistsNow = false;
             SongsNow = false;
@@ -86,7 +88,13 @@ export default function TopBar({ STATE }) {
     });
     const Navigate = useNavigate();
     const SongsClick = () => {
-        Navigate("/");
+        // Navigate("/");
+        document.getElementById("Latest").style.display = "none";
+        document.getElementById("Latest2").style.display = "none";
+        document.getElementById("filesToUpload").style.display = "block";
+        document.getElementById("SongsContainer").style.display = "block";
+        document.getElementById("ArtistsContainer").style.display = "none";
+        document.getElementById("AlbumsContainer").style.display = "none";
         document.getElementById("Artists").style.color = "rgb(0, 0, 0, 0.555)";
         document.getElementById("Artists").style.textDecoration = "none";
 
@@ -107,13 +115,19 @@ export default function TopBar({ STATE }) {
     }
 
     const SongsNotHover = () => {
-        if (SongsNow === false) {
+        if (document.getElementById("SongsContainer").style.display === "none") {
             document.getElementById("Songs").style.color = "rgb(0, 0, 0, 0.555)";
         }
     }
 
     const ArtistsClick = () => {
-        Navigate("/Artists");
+        // Navigate("/Artists");
+        document.getElementById("Latest").style.display = "block";
+        document.getElementById("Latest2").style.display = "none";
+        document.getElementById("filesToUpload").style.display = "none";
+        document.getElementById("SongsContainer").style.display = "none";
+        document.getElementById("ArtistsContainer").style.display = "block";
+        document.getElementById("AlbumsContainer").style.display = "none";
         document.getElementById("Songs").style.color = "rgb(0, 0, 0, 0.555)";
         document.getElementById("Songs").style.textDecoration = "none";
 
@@ -140,7 +154,13 @@ export default function TopBar({ STATE }) {
     }
 
     const AlbumsClick = () => {
-        Navigate("/Albums");
+        // Navigate("/Albums");
+        document.getElementById("Latest").style.display = "none";
+        document.getElementById("Latest2").style.display = "block";
+        document.getElementById("filesToUpload").style.display = "none";
+        document.getElementById("SongsContainer").style.display = "none";
+        document.getElementById("ArtistsContainer").style.display = "none";
+        document.getElementById("AlbumsContainer").style.display = "block";
         document.getElementById("Artists").style.color = "rgb(0, 0, 0, 0.555)";
         document.getElementById("Artists").style.textDecoration = "none";
 
@@ -169,7 +189,13 @@ export default function TopBar({ STATE }) {
     let rAF = null;
     const whilePlaying = () => {
         document.getElementById("CurrentTime").innerHTML = ConvertElaspedTime(document.getElementById("Song1").currentTime);
-        document.getElementById("SeekDuration").innerHTML = ConvertElaspedTime(document.getElementById("Song1").duration);
+        if (AllowSeekDur === "false") {
+            document.getElementById("SeekDuration").innerHTML = "0:00";
+        }
+        setTimeout(() => {
+            AllowSeekDur = true;
+            document.getElementById("SeekDuration").innerHTML = ConvertElaspedTime(document.getElementById("Song1").duration);
+        },3000);
         document.getElementById("SeekSlider").max = Math.floor(document.getElementById("Song1").duration);
         document.getElementById("SeekSlider").value = document.getElementById("Song1").currentTime;
         document.getElementById("OverlayCurrentTime").innerHTML = ConvertElaspedTime(document.getElementById("Song1").currentTime);
@@ -198,7 +224,6 @@ export default function TopBar({ STATE }) {
         requestAnimationFrame(whilePlaying);
     }
 
-
     const FTU = (e) => {
         var jsmediatags = require("jsmediatags");
         for (var i = 0; i < e.target.files.length; i++) {
@@ -207,10 +232,33 @@ export default function TopBar({ STATE }) {
             var StoreE = e.target.files;
             console.log(Index);
             console.log(StoreE[Index]);
+            // localStorage.setItem("IS", Index);
+            // console.log(localStorage.getItem("IS"));
             jsmediatags.read(e.target.files[i], {
                 onSuccess: function (tag) {
+                    // console.log(localStorage.getItem("IS"));
+                    // console.log(StoreE[localStorage.getItem("IS")]);
+                    document.getElementById("NoLatest").style.display = "none";
+                    document.getElementById("filesToUpload").style.display = "none";
+                    document.getElementById("filesToUploadLoader").style.display = "block";
                     Skip += 1;
                     var tags = tag.tags;
+                    const reader = new FileReader();
+                    reader.onload = function () {
+                        var str = this.result;
+                        document.getElementById("Song1Dur").src = str;
+                        setTimeout(() => {
+                            document.getElementById("Song1Dur").addEventListener('onLoadedData', () => {
+                                child7.innerHTML = ConvertElaspedTime(document.getElementById("Song1Dur").duration);
+                            });
+                            setTimeout(() => {
+                                child7.innerHTML = ConvertElaspedTime(document.getElementById("Song1Dur").duration);
+                                document.getElementById("filesToUpload").style.display = "block";
+                    document.getElementById("filesToUploadLoader").style.display = "none";
+                            },1000);
+                        }, 1800);
+                    }
+                    reader.readAsDataURL(StoreE[Index]);
                     console.log(tags);
                     const songsContainer = document.getElementById("SongsContainer");
                     // document.getElementById("Song1").src = URL.createObjectURL(e.target.files[i]);
@@ -223,31 +271,29 @@ export default function TopBar({ STATE }) {
                         parent.style.background = "rgb(196, 188, 188)";
                     }
                     parent.addEventListener('click', () => {
-                                                for (var i = 0; i < e.target.files.length; i++) {
-                        var Index = i;
-                        var StoreE = e.target.files;
-                        console.log(Index);
-                                                    console.log(StoreE[Index]);
-                                                    if (StoreE[Index].type.indexOf('audio/') !== 0) {
+                        if (StoreE[Index].type.indexOf('audio/') !== 0) {
                             console.warn('not an audio file');
                             return;
                         }
                         const reader = new FileReader();
                         reader.onload = function () {
                             var str = this.result;
+                            localStorage.setItem("SE", true);
                             console.log(StoreE[Index]);
                             document.getElementById("Song1").src = str;
-                            PlayButClick();
+                            // setTimeout(() => {
+                            //     child7.innerHTML = ConvertElaspedTime(document.getElementById("Song1").duration);  
+                            // }, 100);
                             // localStorage.setItem("Song", str);
                             // console.log(str);
                             // document.getElementById("Song1").src = `data:${e.target.files.format}; base64, ${window.btoa(str)}`;
                             // console.log(`data:${e.target.files.format}; base64, ${window.btoa(str)}`);
+                            PlayButClick();
                             // var aud = new Audio(str);
                             // aud.play();
                             // document.getElementById("Song1").play();
                         }
                         reader.readAsDataURL(StoreE[Index]);
-                    }
 
                         // URL.revokeObjectURL(e.target.files[0]);
                         const { data } = tags.picture;
@@ -257,10 +303,14 @@ export default function TopBar({ STATE }) {
                         }
                         // document.getElementById("MusicArt").style.background = "rgb(196, 188, 188) url(`data:${data.format}; base64, ${window.btoa(base64String)}`) 0 0 no-repeat";
                         document.getElementById("MA").src = `data:${data.format}; base64, ${window.btoa(base64String)}`;
+                        document.getElementById("OverlayMA").src = `data:${data.format}; base64, ${window.btoa(base64String)}`;
+                        document.getElementById("OverlayBGMA").src = `data:${data.format}; base64, ${window.btoa(base64String)}`;
                         // document.getElementById("Song1").src = URL.createObjectURL(e.target.files[i]);
                         // console.log(`data:${data.format}; base64, ${window.btoa(base64String)}`);
                         document.getElementById("SongTitle").innerHTML = tags.title;
                         document.getElementById("SongArtist").innerHTML = tags.artist;
+                        document.getElementById("OverlaySongTitle").innerHTML = tags.title;
+                        document.getElementById("OverlaySongArtist").innerHTML = tags.artist;
                     });
                     const child1 = document.createElement('div');
                     child1.id = "p1";
@@ -290,9 +340,11 @@ export default function TopBar({ STATE }) {
                     child4.innerHTML = tags.album;
                     child5.innerHTML = tags.year;
                     child6.innerHTML = tags.genre;
-                    setTimeout(() => {
-                        child7.innerHTML = ConvertElaspedTime(document.getElementById("Song1").duration);
-                    }, 1000);
+                    if (document.getElementById("SongName").style.width >= "25ch") {
+                        const marquee = document.createElement('marquee');
+                        marquee.appendChild(child2);
+                        console.log("marquee");
+                    }
                 },
                 onError: function (error) {
                     console.log(error);
@@ -300,7 +352,6 @@ export default function TopBar({ STATE }) {
             });
         }
     }
-
 
     return (
         <>
@@ -313,7 +364,10 @@ export default function TopBar({ STATE }) {
                             <span id="Albums" onMouseLeave={AlbumsNotHover} onMouseOver={AlbumsHover} onClick={AlbumsClick}>Albums</span>
                         </p>
                         <hr id="hr1" />
-                        <input name="filesToUpload[]" id="filesToUpload" type="file" onChange={FTU} multiple />
+                        <input name="filesToUpload[]" id="filesToUpload" type="file" onChange={FTU} />
+                        <span id="filesToUploadLoader">Please Wait...</span>
+                        <span id="Latest">-Artists Who Just Released New Songs-</span>
+                        <span id="Latest2">-Latest Albums-</span>
                         <hr id="hr2" />
                     </div>
                 </div>

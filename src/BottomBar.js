@@ -9,7 +9,6 @@ export default function BottomBar() {
     // },1200)
     // document.getElementById("Song1").volume = document.getElementById("VolumeSlider").value;
     let rAF = null;
-    var AddedSong = false;
     const whilePlaying = () => {
         document.getElementById("CurrentTime").innerHTML = ConvertElaspedTime(document.getElementById("Song1").currentTime);
         document.getElementById("SeekDuration").innerHTML = ConvertElaspedTime(document.getElementById("Song1").duration);
@@ -36,7 +35,7 @@ export default function BottomBar() {
         document.getElementById("OverlayPlayButton").style.display = "block";
         document.getElementById("OverlaySeekSlider").value = 0;
         document.getElementById("OverlayCurrentTime").innerHTML = ConvertElaspedTime(document.getElementById("OverlaySeekSlider").value);
-        document.getElementById("OverlaySeekDuration").innerHTML = ConvertElaspedTime(document.getElementById("OverlaySong1").duration);
+        document.getElementById("OverlaySeekDuration").innerHTML = ConvertElaspedTime(document.getElementById("Song1").duration);
         rAF = requestAnimationFrame(whileEnded);
     }
 
@@ -81,13 +80,15 @@ export default function BottomBar() {
     }
 
     const PlayButClick = () => {
-        cancelAnimationFrame(rAF);
-        document.getElementById("PlayButton").style.display = "none";
-        document.getElementById("PauseButton").style.display = "block";
-        document.getElementById("OverlayPlayButton").style.display = "none";
-        document.getElementById("OverlayPauseButton").style.display = "block";
-        document.getElementById("Song1").play();
-        requestAnimationFrame(whilePlaying);
+        if (JSON.parse(localStorage.getItem("SE")) === true) {
+            cancelAnimationFrame(rAF);
+            document.getElementById("PlayButton").style.display = "none";
+            document.getElementById("PauseButton").style.display = "block";
+            document.getElementById("OverlayPlayButton").style.display = "none";
+            document.getElementById("OverlayPauseButton").style.display = "block";
+            document.getElementById("Song1").play();
+            requestAnimationFrame(whilePlaying);
+        }
     }
     const PauseButClick = () => {
         document.getElementById("PauseButton").style.display = "none";
@@ -127,6 +128,10 @@ export default function BottomBar() {
     }
 
     const SetVolume = () => {
+        document.getElementById("MuteVolumeImg").style.display = "none";
+        document.getElementById("VolumeImg").style.display = "block";
+        document.getElementById("OverlayMuteVolumeImg").style.display = "none";
+        document.getElementById("OverlayVolumeImg").style.display = "block";
         document.getElementById("Song1").volume = document.getElementById("VolumeSlider").value;
     }
 
@@ -149,17 +154,17 @@ export default function BottomBar() {
     const [VolumeValue, StoreValue] = useState(0);
 
     const Mute = () => {
-        StoreValue(document.getElementById("VolumeSlider").value);
+        // StoreValue(document.getElementById("VolumeSlider").value);
         document.getElementById("VolumeImg").style.display = "none";
         document.getElementById("MuteVolumeImg").style.display = "block";
         document.getElementById("OverlayVolumeImg").style.display = "none";
         document.getElementById("OverlayMuteVolumeImg").style.display = "block";
         document.getElementById("Song1").volume = 0;
-        document.getElementById("VolumeSlider").value = 0;
+        // document.getElementById("VolumeSlider").value = 0;
     }
 
     const UnMute = () => {
-        document.getElementById("VolumeSlider").value = VolumeValue;
+        // document.getElementById("VolumeSlider").value = VolumeValue;
         document.getElementById("MuteVolumeImg").style.display = "none";
         document.getElementById("VolumeImg").style.display = "block";
         document.getElementById("OverlayMuteVolumeImg").style.display = "none";
@@ -168,40 +173,45 @@ export default function BottomBar() {
     }
 
     const ShowOverlay = () => {
-        // console.log("ghost");
-        if (document.getElementById("Overlay").style.opacity == 0) {
-            // console.log("ghost1");
-            document.getElementById("Overlay").style.zIndex = "1";
-            document.getElementById("OverlayCurrentTime").innerHTML = ConvertElaspedTime(document.getElementById("Song1").currentTime);
-            document.getElementById("OverlaySeekDuration").innerHTML = ConvertElaspedTime(document.getElementById("Song1").duration);
-            document.getElementById("BottomPlayerUIContainer").style.zIndex = "0";
-            document.getElementById("Overlay").style.opacity = "1";
-            document.getElementById("BottomPlayerUIContainer").style.display = "none";
-            document.body.style.overflowY = "hidden";
-            document.getElementById("OverlaySeekSlider").max = Math.floor(document.getElementById("Song1").duration);
-            document.getElementById("OverlaySeekSlider").value = document.getElementById("Song1").currentTime;
-            // document.getElementById("Overlay").style.animationName = "FadeOut";
-        } else if (document.getElementById("Overlay").style.opacity == 1) {
-            // console.log("ghost2");
-            document.getElementById("BottomPlayerUIContainer").style.display = "block";
-            document.getElementById("Overlay").style.opacity = "0";
-            document.getElementById("BottomPlayerUIContainer").style.zIndex = "1";
-            setTimeout(() => {
-                document.getElementById("Overlay").style.zIndex = "-1";
-            }, 1000);
-            // setTimeout(() => {
-            //     document.getElementById("Overlay").style.animationName = "FadeOut";
-            // document.getElementById("Overlay").style.animationDuration = "1s";
-            // document.getElementById("Overlay").style.animationIterationCount = "1";
-            //     document.getElementById("Overlay").style.display = "none";
-            //     document.getElementById("BottomPlayerUIContainer").style.zIndex = "1";
-            //     document.getElementById("Overlay").style.animationName = "FadeIn";
-            // }, 1000);
-            document.body.style.overflowY = "scroll";
+        if (JSON.parse(localStorage.getItem("SE")) === true) {
+            // console.log("ghost");
+            if (document.getElementById("Overlay").style.opacity == 0) {
+                // console.log("ghost1");
+                document.getElementById("Overlay").style.zIndex = "1";
+                document.getElementById("OverlayCurrentTime").innerHTML = ConvertElaspedTime(document.getElementById("Song1").currentTime);
+                document.getElementById("OverlaySeekDuration").innerHTML = ConvertElaspedTime(document.getElementById("Song1").duration);
+                document.getElementById("BottomPlayerUIContainer").style.zIndex = "0";
+                document.getElementById("Overlay").style.opacity = "1";
+                document.getElementById("BottomPlayerUIContainer").style.display = "none";
+                document.body.style.overflowY = "hidden";
+                document.getElementById("OverlaySeekSlider").max = Math.floor(document.getElementById("Song1").duration);
+                document.getElementById("OverlaySeekSlider").value = document.getElementById("Song1").currentTime;
+                // document.getElementById("Overlay").style.animationName = "FadeOut";
+            } else if (document.getElementById("Overlay").style.opacity == 1) {
+                // console.log("ghost2");
+                document.getElementById("BottomPlayerUIContainer").style.display = "block";
+                document.getElementById("Overlay").style.opacity = "0";
+                document.getElementById("BottomPlayerUIContainer").style.zIndex = "1";
+                setTimeout(() => {
+                    document.getElementById("Overlay").style.zIndex = "-1";
+                }, 1000);
+                // setTimeout(() => {
+                //     document.getElementById("Overlay").style.animationName = "FadeOut";
+                // document.getElementById("Overlay").style.animationDuration = "1s";
+                // document.getElementById("Overlay").style.animationIterationCount = "1";
+                //     document.getElementById("Overlay").style.display = "none";
+                //     document.getElementById("BottomPlayerUIContainer").style.zIndex = "1";
+                //     document.getElementById("Overlay").style.animationName = "FadeIn";
+                // }, 1000);
+                document.body.style.overflowY = "scroll";
+            }
         }
 
-
     }
+
+    // const ShowDuration = () => {
+    //     document.getElementById("Duration").innerHTML = ConvertElaspedTime(document.getElementById("Song1Dur").duration);
+    // }
 
     // const FTU = (e) => {
     //     var jsmediatags = require("jsmediatags");
@@ -237,6 +247,7 @@ export default function BottomBar() {
     return (
         <>
             <audio id="Song1" type="audio/mpeg" preload="metadata" src={Song1} onLoadedData={ShowDetails} onEnded={EndAudio}></audio>
+            <audio id="Song1Dur" type="audio/mpeg" preload="metadata" src=""></audio>
             <div id="Overlay">
                 <div id="BackButton" onClick={ShowOverlay}></div>
                 <div id="OverlayBottom">
@@ -258,6 +269,9 @@ export default function BottomBar() {
                             <div id="OverlayMuteVolumeImg" onClick={UnMute}></div>
                         </div>
                     </div>
+                    <img id="OverlayMA" src={DefaultIMG} alt=""/>
+                    <img id="OverlayBGMA" src={DefaultIMG} alt="" />
+                    <div id="BottomBGMA"></div>
                 </div>
             </div>
             <div id="BottomPlayerUIContainer">
@@ -284,7 +298,7 @@ export default function BottomBar() {
                         <input id="VolumeSlider" type="range" step="0.1" min="0" max="1" onChange={SetVolume} />
                     </div>
                 </div>
-                <img id="MA" src={DefaultIMG} alt=""/>
+                <img id="MA" src={DefaultIMG} alt="" />
             </div>
         </>
     )

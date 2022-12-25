@@ -8,6 +8,7 @@ import SideBar from './SideBar';
 import Songs from './Songs';
 import Artists from './Artists';
 import TopBar from './TopBar';
+import swDev from './swDev';
 
 
 function START() {
@@ -46,17 +47,22 @@ function START() {
       <BrowserRouter>
         <TopBar />
         <BottomBar />
-        <SideBar />
-        <Routes>
+          <SideBar />
+          <Songs />
+          <Artists />
+          <Albums />
+        {/* <Routes>
           <Route path="/" element={<Songs />} />
           <Route path="/Artists" element={<Artists />} />
           <Route path="/Albums" element={<Albums />} />
-        </Routes>
+        </Routes> */}
         </BrowserRouter>
         </div>
     </>
   )
 
 }
+
+swDev();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(< START />);

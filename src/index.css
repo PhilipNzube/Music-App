@@ -8,6 +8,64 @@ body {
   display: none;
 }
 
+#Latest{
+  text-shadow: 0px 0px 5px;
+  display: none;
+  position: relative;
+  color:green;
+  font-weight: bold;
+}
+
+#Latest2{
+  text-shadow: 0px 0px 5px;
+  display: none;
+  position: relative;
+  color:green;
+  font-weight: bold;
+}
+
+#NoLatest{
+  text-shadow: 0px 0px 5px;
+  font-family: OCR A Std, monospace;
+  text-align: center;
+  position: relative;
+  color:red;
+  font-weight: bold;
+  font-size: 200%;
+}
+
+#Instruct{
+  color:green;
+  font-size: 50%; 
+}
+
+#Choose{
+  color:black;
+  font-size: 120%;
+}
+
+#filesToUploadLoader{
+  text-shadow: 0px 0px 5px;
+  display: none;
+  position: relative;
+  color:green;
+  font-weight: bold;
+}
+
+#OverlayBGMA{
+  filter: blur(0.5em);
+  position: fixed;
+  left:0%;
+  bottom: 0%;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+#BottomBGMA{
+  display: none;
+}
+
 @media only screen and (min-width:1170px){
   #OverlayBottom{
     position: relative;
@@ -24,22 +82,10 @@ body {
     color:rgb(109, 2, 2);
     z-index: 1;
     opacity: 1;
-    animation-name: FadeInOut;
     animation-delay: 0.4s;
     animation-iteration-count: infinite;
   }
 
-  @keyframes FadeInOut {
-  0%{
-    opacity: 0;
-  }
-  50%{
-    opcaity:1;
-  }
-  100%{
-    opacity: 0;
-  }
-}
 #SongsContainer {
   position: relative;
   margin-left: 6.5%;
@@ -107,13 +153,20 @@ body {
   z-index: 1;
 }
 
+#OverlayMA{
+  position: relative;
+  left:1.55%;
+  bottom: -46px;
+  width: 10%;
+  height: 100%;
+  z-index: 1;
+}
+
 #MusicArt {
   position: relative;
   bottom: 0px;
   height: 100%;
   width: 10%;
-  background: rgb(196, 188, 188) url("./Images/JuicePoster.jpg") 0 0 no-repeat;
-  background-size: cover;
   z-index: 1;
 }
 
@@ -343,6 +396,7 @@ body {
   max-width: 25ch;
 }
 
+
 #ArtistName {
   position: relative;
   left: 22%;
@@ -370,7 +424,7 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: clip;
-  max-width: 25ch;
+  max-width: 5ch;
 }
 
 #Genre {
@@ -1059,6 +1113,7 @@ body {
 }
 
 #OverlayVolumeImg {
+  z-index: 1;
   position: relative;
   left: 19%;
   bottom: 125px;
@@ -1078,6 +1133,7 @@ body {
 }
 
 #OverlayMuteVolumeImg {
+  z-index: 1;
   display: none;
   position: relative;
   left: 19%;
@@ -1261,8 +1317,6 @@ body {
   bottom: -350px;
   height: 20%;
   width: 10%;
-  background: rgb(196, 188, 188) url("./Images/JuicePoster.jpg") 0 0 no-repeat;
-  background-size: cover;
   z-index: 1;
 }
 
@@ -1336,22 +1390,9 @@ body {
     color:rgb(109, 2, 2);
     z-index: 1;
     opacity: 1;
-    animation-name: FadeInOut;
     animation-delay: 0.4s;
     animation-iteration-count: infinite;
   }
-
-  @keyframes FadeInOut {
-  0%{
-    opacity: 0;
-  }
-  50%{
-    opcaity:1;
-  }
-  100%{
-    opacity: 0;
-  }
-}
 
   #SongsContainer {
     position: relative;
@@ -1411,14 +1452,29 @@ body {
     width: 100%;
     z-index: 1;
   }
+
+  #MA{
+    position: relative;
+    bottom: 283px;
+    width: 10%;
+    height: 100%;
+    z-index: 1;
+  }
+  
+  #OverlayMA{
+    position: fixed;
+    left:1.55%;
+    top: 60%;
+    width: 10%;
+    height: 20%;
+    z-index: 1;
+  }
   
   #MusicArt {
     position: relative;
     bottom: 0px;
     height: 100%;
     width: 10%;
-    background: rgb(196, 188, 188) url("./Images/JuicePoster.jpg") 0 0 no-repeat;
-    background-size: cover;
     z-index: 1;
   }
   
@@ -1509,7 +1565,7 @@ body {
   
   #hr2 {
     position: relative;
-    bottom: -20px;
+    bottom: 10px;
   }
   
   #Song1 {
@@ -1675,7 +1731,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
-    max-width: 20ch;
+    max-width: 5ch;
   }
   
   #Genre {
@@ -2364,6 +2420,7 @@ body {
   }
   
   #OverlayVolumeImg {
+    z-index: 1;
     position: relative;
     left: 19%;
     bottom: 125px;
@@ -2383,6 +2440,7 @@ body {
   }
   
   #OverlayMuteVolumeImg {
+    z-index: 1;
     display: none;
     position: relative;
     left: 19%;
@@ -2566,8 +2624,6 @@ body {
     bottom: -350px;
     height: 20%;
     width: 10%;
-    background: rgb(196, 188, 188) url("./Images/JuicePoster.jpg") 0 0 no-repeat;
-    background-size: cover;
     z-index: 1;
   }
   
@@ -2651,7 +2707,22 @@ body {
     animation-duration: 1.5s;
     animation-iteration-count: 1;
   }
+  #MA{
+    position: relative;
+    bottom: 273px;
+    width: 10%;
+    height: 100%;
+    z-index: 1;
+  }
   
+  #OverlayMA{
+    position: fixed;
+    left:1.55%;
+    top: 60%;
+    width: 10%;
+    height: 20%;
+    z-index: 1;
+  }
   
   #MusicArt:hover {
     cursor: pointer;
@@ -2694,7 +2765,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
-    max-width: 15ch;
+    max-width: 5ch;
   }
   
   #Genre {
@@ -2840,6 +2911,7 @@ body {
   }
   
   #OverlayVolumeImg {
+    z-index: 1;
     position: relative;
     left: 19%;
     bottom: 125px;
@@ -2859,6 +2931,7 @@ body {
   }
   
   #OverlayMuteVolumeImg {
+    z-index: 1;
     display: none;
     position: relative;
     left: 19%;
@@ -3014,8 +3087,6 @@ body {
     bottom: -350px;
     height: 20%;
     width: 10%;
-    background: rgb(196, 188, 188) url("./Images/JuicePoster.jpg") 0 0 no-repeat;
-    background-size: cover;
     z-index: 1;
   }
   
@@ -3044,22 +3115,9 @@ body {
     color:rgb(109, 2, 2);
     z-index: 1;
     opacity: 1;
-    animation-name: FadeInOut;
     animation-delay: 0.4s;
     animation-iteration-count: infinite;
   }
-
-  @keyframes FadeInOut {
-  0%{
-    opacity: 0;
-  }
-  50%{
-    opcaity:1;
-  }
-  100%{
-    opacity: 0;
-  }
-}
 
   #SongsContainer {
     position: relative;
@@ -3108,6 +3166,15 @@ body {
     animation-name: SlideIn;
     animation-duration: 1.5s;
     animation-iteration-count: 1;
+  }
+
+  #OverlayMA{
+    position: fixed;
+    left:1.55%;
+    top: 60%;
+    width: 17%;
+    height: 20%;
+    z-index: 1;
   }
 
   #MusicArt:hover {
@@ -3177,8 +3244,24 @@ body {
     background: url("./Images/MuteVolume.png") 0px 5px no-repeat;
     background-size: contain;
   }
+
+  #OverlaySongDetails{
+    position: relative;
+    top: 0%;
+    white-space:normal;
+    overflow: hidden;
+    text-overflow:clip;
+    width:450%;
+  }
+
+  #OverlaySongTitle{
+    position: fixed;
+    top: 60%;
+    white-space:normal;
+  }
   
   #OverlayVolumeImg {
+    z-index: 1;
     position: relative;
     left: 19%;
     bottom: 125px;
@@ -3198,6 +3281,7 @@ body {
   }
   
   #OverlayMuteVolumeImg {
+    z-index: 1;
     display: none;
     position: relative;
     left: 19%;
@@ -3324,8 +3408,6 @@ body {
     bottom: -350px;
     height: 20%;
     width: 17%;
-    background: rgb(196, 188, 188) url("./Images/JuicePoster.jpg") 0 0 no-repeat;
-    background-size: cover;
     z-index: 1;
   }
   
@@ -3357,22 +3439,10 @@ body {
     color:rgb(109, 2, 2);
     z-index: 1;
     opacity: 1;
-    animation-name: FadeInOut;
     animation-delay: 0.4s;
     animation-iteration-count: infinite;
   }
 
-  @keyframes FadeInOut {
-  0%{
-    opacity: 0;
-  }
-  50%{
-    opcaity:1;
-  }
-  100%{
-    opacity: 0;
-  }
-}
 
   #SongsContainer {
     position: relative;
@@ -3421,6 +3491,15 @@ body {
     animation-name: SlideIn;
     animation-duration: 1.5s;
     animation-iteration-count: 1;
+  }
+
+  #OverlayMA{
+    position: fixed;
+    left:1.55%;
+    top: 50%;
+    width: 20%;
+    height: 20%;
+    z-index: 1;
   }
 
   #SeekSlider {
@@ -3637,7 +3716,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
-    max-width: 50ch;
+    max-width: 25ch;
     font-weight: 500;
   }
   
@@ -3659,7 +3738,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
-    max-width: 50ch;
+    max-width: 20ch;
   }
   
   #Date {
@@ -3670,7 +3749,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
-    max-width: 20ch;
+    max-width: 5ch;
   }
   
   #Genre {
@@ -3994,8 +4073,34 @@ body {
     top: 165px;
   }
 
+  #OverlaySongDetails{
+    position: relative;
+    top: 0%;
+    white-space:normal;
+    overflow: hidden;
+    text-overflow:clip;
+    width:450%;
+    height: 70px;
+  }
+
+  #OverlaySongTitle{
+    position: fixed;
+    top: 50%;
+    white-space:normal;
+  }
+
+  #OverlaySongArtist{
+    position: relative;
+    top: 35px;
+  }
+
+  #OverlayBottom{
+    position:relative;
+    bottom: 0%;
+  }
   
   #OverlayVolumeImg {
+    z-index: 1;
     position: relative;
     left: 25%;
     bottom: 125px;
@@ -4015,6 +4120,7 @@ body {
   }
   
   #OverlayMuteVolumeImg {
+    z-index: 1;
     display: none;
     position: relative;
     left: 25%;
@@ -4177,8 +4283,6 @@ body {
     bottom: -350px;
     height: 20%;
     width: 20%;
-    background: rgb(196, 188, 188) url("./Images/JuicePoster.jpg") 0 0 no-repeat;
-    background-size: cover;
     z-index: 1;
   }
   
@@ -4222,6 +4326,24 @@ body {
     100% {
       transform: translateY(0%);
     }
+  }
+
+  #MA{
+    position: relative;
+    display: none;
+    bottom: 283px;
+    width: 10%;
+    height: 100%;
+    z-index: 1;
+  }
+  
+  #OverlayMA{
+    position: fixed;
+    left:1.55%;
+    top: 50%;
+    width: 20%;
+    height: 20%;
+    z-index: 1;
   }
   
   #ArtistsContainer {
@@ -4338,6 +4460,7 @@ body {
 
   
   #OverlayVolumeImg {
+    z-index: 1;
     position: relative;
     left: 25%;
     bottom: 125px;
@@ -4357,6 +4480,7 @@ body {
   }
   
   #OverlayMuteVolumeImg {
+    z-index: 1;
     display: none;
     position: relative;
     left: 25%;
@@ -4519,8 +4643,6 @@ body {
     bottom: -350px;
     height: 20%;
     width: 20%;
-    background: rgb(196, 188, 188) url("./Images/JuicePoster.jpg") 0 0 no-repeat;
-    background-size: cover;
     z-index: 1;
   }
   
@@ -4630,25 +4752,14 @@ body {
     color:rgb(109, 2, 2);
     z-index: 1;
     opacity: 1;
-    animation-name: FadeInOut;
     animation-delay: 0.4s;
     animation-iteration-count: infinite;
+    white-space: nowrap;
   }
 
-  @keyframes FadeInOut {
-  0%{
-    opacity: 0;
-  }
-  50%{
-    opcaity:1;
-  }
-  100%{
-    opacity: 0;
-  }
-}
   #SongsContainer {
     position: relative;
-    margin-top: 50%;
+    margin-top: 45%;
     background-color: rgb(247, 243, 243);
     width: 90%;
     height: 100%;
@@ -4671,10 +4782,19 @@ body {
       transform: translateY(0%);
     }
   }
+
+  #OverlayMA{
+    position: fixed;
+    left:1.55%;
+    top: 50%;
+    width: 30%;
+    height: 20%;
+    z-index: 1;
+  }
   
   #ArtistsContainer {
     margin-left: 6.5%;
-    margin-top: 50%;
+    margin-top: 45%;
     background-color: rgb(247, 243, 243);
     width: 90%;
     height: 100%;
@@ -4685,7 +4805,7 @@ body {
   
   #AlbumsContainer {
     margin-left: 6.5%;
-    margin-top: 50%;
+    margin-top: 45%;
     background-color: rgb(247, 243, 243);
     width: 90%;
     height: 100%;
@@ -4778,6 +4898,7 @@ body {
 
   
   #OverlayVolumeImg {
+    z-index: 1;
     position: relative;
     left: 30%;
     bottom: 125px;
@@ -4797,6 +4918,7 @@ body {
   }
   
   #OverlayMuteVolumeImg {
+    z-index: 1;
     display: none;
     position: relative;
     left: 25%;
@@ -4958,8 +5080,6 @@ body {
     bottom: -350px;
     height: 20%;
     width: 30%;
-    background: rgb(196, 188, 188) url("./Images/JuicePoster.jpg") 0 0 no-repeat;
-    background-size: cover;
     z-index: 1;
   }
   
@@ -5228,7 +5348,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
-    max-width: 50ch;
+    max-width: 20ch;
   }
   
   #Date {
@@ -5239,7 +5359,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
-    max-width: 20ch;
+    max-width: 5ch;
   }
   
   #Genre {
@@ -5583,18 +5703,77 @@ body {
 
 
 @media only screen and (max-width:425px){
+
+  #Latest{
+    display: none;
+    position: relative;
+    color:green;
+    font-weight: bold;
+    width: 100%;
+    white-space: nowrap;
+  }
+
+  #OverlaySongDetails{
+    position: relative;
+    top: 0%;
+    white-space:normal;
+    overflow: hidden;
+    text-overflow:clip;
+    width:450%;
+  }
+
+  #OverlaySongTitle{
+    position: fixed;
+    top: 55%;
+    white-space:normal;
+    font-size: 120%;
+  }
+
+  #OverlaySongArtist{
+    position: fixed;
+    top: 71%;
+  }
+
+#OverlayMA{
+    position: fixed;
+    left:1.55%;
+    top: 54.6%;
+    width: 30%;
+    height: 20%;
+    z-index: 1;
+  }
+
+  #OverlayBGMA{
+    filter: blur(0.5em);
+    position: fixed;
+    left:0%;
+    bottom: 30%;
+    width: 100%;
+    height: 70%;
+    z-index: -1;
+  }
+
+  #BottomBGMA{
+    display: block;
+    filter: blur(0.5em);
+    position: fixed;
+    bottom: 0%;
+    height: 30%;
+    width: 100%;
+    background: rgba(43, 42, 42, 0.445);
+  }
+
   #OverlayMusicArt {
     position: relative;
     left: 1.5%;
     bottom: -350px;
     height: 110px;
     width: 30%;
-    background: rgb(196, 188, 188) url("./Images/JuicePoster.jpg") 0 0 no-repeat;
-    background-size: cover;
     z-index: 1;
   }
 
   #OverlayVolumeImg {
+    z-index: 1;
     position: relative;
     left: 35.8%;
     bottom: 125px;
@@ -5614,6 +5793,7 @@ body {
   }
   
   #OverlayMuteVolumeImg {
+    z-index: 1;
     display: none;
     position: relative;
     left: 35.8%;
@@ -5772,7 +5952,7 @@ body {
 
 #OverlayBottom{
   position: relative;
-  bottom: 20%;
+  bottom: 10%;
 }
 
   #LOADING{
@@ -5786,23 +5966,11 @@ body {
     color:rgb(109, 2, 2);
     z-index: 1;
     opacity: 1;
-    animation-name: FadeInOut;
     animation-delay: 0.4s;
     animation-iteration-count: infinite;
+    white-space: nowrap;
   }
 
-  @keyframes FadeInOut {
-  0%{
-    opacity: 0;
-  }
-  50%{
-    opcaity:1;
-  }
-  100%{
-    opacity: 0;
-  }
-    
-  }
   #SongsContainer {
     position: relative;
     margin-top: 50%;
@@ -5898,19 +6066,10 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
-    max-width: 20ch;
-    font-weight: 500;
-  }
-  
-  #SongName {
-    position: relative;
-    top: 8px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: clip;
     max-width: 25ch;
     font-weight: 500;
   }
+  
   
   #ArtistName {
     position: relative;
@@ -5919,7 +6078,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
-    max-width: 50ch;
+    max-width: 10ch;
     font-size: small;
   }
   
@@ -5930,7 +6089,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
-    max-width: 50ch;
+    max-width: 20ch;
     font-size: small;
   }
   
@@ -5942,7 +6101,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
-    max-width: 20ch;
+    max-width: 5ch;
   }
   
   #Genre {
@@ -5959,7 +6118,7 @@ body {
   #Duration {
     position: relative;
     left: 92%;
-    top: -50px;
+    top: -40px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
@@ -5970,6 +6129,14 @@ body {
 
 
 @media only screen and (max-width:375px){
+  #Latest{
+    display: none;
+    position: relative;
+    color:green;
+    font-weight: bold;
+    font-size: 86%;
+    white-space: nowrap;
+  }
   #LOADING{
     text-shadow: 0px 0px 10px;
     font-weight: bold;
@@ -5981,23 +6148,11 @@ body {
     color:rgb(109, 2, 2);
     z-index: 1;
     opacity: 1;
-    animation-name: FadeInOut;
     animation-delay: 0.4s;
     animation-iteration-count: infinite;
+    white-space: nowrap;
   }
 
-  @keyframes FadeInOut {
-  0%{
-    opacity: 0;
-  }
-  50%{
-    opcaity:1;
-  }
-  100%{
-    opacity: 0;
-  }
-    
-  }
   #SongsContainer {
     position: relative;
     margin-top: 60%;
@@ -6121,8 +6276,11 @@ body {
     font-weight: 500;
   }
 
+
+  
   
   #OverlayVolumeImg {
+    z-index: 1;
     position: relative;
     left: 38%;
     bottom: 125px;
@@ -6142,6 +6300,7 @@ body {
   }
   
   #OverlayMuteVolumeImg {
+    z-index: 1;
     display: none;
     position: relative;
     left: 38%;
@@ -6300,7 +6459,12 @@ body {
 
 #OverlayBottom{
   position: relative;
-  bottom: 10%;
+  bottom: 5%;
+}
+
+#OverlayMainPlayerControls{
+  position: relative;
+  top:450px;
 }
 
   #OverlayMusicArt {
@@ -6309,8 +6473,6 @@ body {
     bottom: -350px;
     height: 20%;
     width: 30%;
-    background: rgb(196, 188, 188) url("./Images/JuicePoster.jpg") 0 0 no-repeat;
-    background-size: cover;
     z-index: 1;
   }
   
@@ -6436,18 +6598,18 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
-    max-width: 50ch;
+    max-width: 10ch;
     font-size:70%;
   }
   
   #AlbumName {
     position: relative;
     left: 23%;
-    top: -13px;
+    top: -10px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
-    max-width: 50ch;
+    max-width: 20ch;
     font-size:70%;
   }
   
@@ -6459,7 +6621,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
-    max-width: 20ch;
+    max-width: 5ch;
   }
   
   #Genre {
@@ -6476,7 +6638,7 @@ body {
   #Duration {
     position: relative;
     left: 90%;
-    top: -44px;
+    top: -36px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
@@ -6491,6 +6653,14 @@ body {
 
 
 @media only screen and (max-width:320px){
+  #Latest{
+    display: none;
+    position: relative;
+    color:green;
+    font-weight: bold;
+    font-size: 73%;
+    white-space: nowrap;
+  }
   #LOADING{
     text-shadow: 0px 0px 10px;
     font-weight: bold;
@@ -6502,23 +6672,11 @@ body {
     color:rgb(109, 2, 2);
     z-index: 1;
     opacity: 1;
-    animation-name: FadeInOut;
     animation-delay: 0.4s;
     animation-iteration-count: infinite;
+    white-space: nowrap;
   }
 
-  @keyframes FadeInOut {
-  0%{
-    opacity: 0;
-  }
-  50%{
-    opcaity:1;
-  }
-  100%{
-    opacity: 0;
-  }
-    
-  }
 
   #SongsContainer {
     position: relative;
@@ -6644,8 +6802,31 @@ body {
     font-weight: 500;
   }
 
+  #OverlayMainPlayerControls{
+    position: relative;
+    top:420px;
+  }
+
+  #OverlaySongDetails{
+    position: relative;
+    top: 0%;
+    white-space:normal;
+    overflow: hidden;
+    text-overflow:clip;
+    width:450%;
+    height:50px;
+  }
+
+  #OverlaySongTitle{
+    position: fixed;
+    top: 55%;
+    white-space:normal;
+    font-size: 110%;
+  }
+
   
   #OverlayVolumeImg {
+    z-index: 1;
     position: relative;
     left: 45.8%;
     bottom: 125px;
@@ -6665,6 +6846,7 @@ body {
   }
   
   #OverlayMuteVolumeImg {
+    z-index: 1;
     display: none;
     position: relative;
     left: 45.8%;
@@ -6823,7 +7005,7 @@ body {
 
 #OverlayBottom{
   position: relative;
-  bottom: 10%;
+  bottom: 0%;
 }
 
   
@@ -7076,7 +7258,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
-    max-width: 50ch;
+    max-width: 8ch;
     font-size:70%;
   }
   
@@ -7087,7 +7269,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
-    max-width: 50ch;
+    max-width: 20ch;
     font-size:70%;
   }
   
@@ -7099,7 +7281,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
-    max-width: 20ch;
+    max-width: 5ch;
   }
   
   #Genre {

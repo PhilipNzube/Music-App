@@ -1,14 +1,11 @@
 import React from 'react';
 
 export default function Songs() {
-    const PlaySong2 = () => {
-        document.getElementById("SongTitle").innerHTML = "Girl Of My Dreams";
-        document.getElementById("SongArtist").innerHTML = "Juice WRLD";
-}
-
+    
     return (
         <>
             <div id="SongsContainer">
+                <div id="NoLatest">No Latest Songs<br/><span id="Instruct">Use The <b id="Choose">"Choose File"</b> Button Above To Add Your Own Songs</span></div>
                 {/* <div id="Song1">
                     <div id="p1">
                         <div id="SongName">Feel Alone</div>
