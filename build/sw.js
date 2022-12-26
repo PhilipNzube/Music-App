@@ -3,7 +3,6 @@ this.addEventListener("install", (event) => {
     event.waitUntil(
         caches.open(cacheData).then((cache) => {
             cache.addAll([
-                '/static/js/bundle.js',
                 '/manifest.json',
                 '/static/media/FeelAlone.048a0626fc01586d2f59.mp3',
                 '/static/media/Def.001c19cec1594549368f.png',
@@ -36,7 +35,7 @@ this.addEventListener("install", (event) => {
     )
 })
 this.addEventListener("fetch", (event) => {
-    // if (!navigator.onLine) {
+     //if (!navigator.onLine) {
         event.respondWith(
             caches.match(event.request).then((resp) => {
                 if (resp) {
