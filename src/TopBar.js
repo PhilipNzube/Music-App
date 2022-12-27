@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import DefaultIMG from './Images/Def.png'
 
 export default function TopBar({ STATE }) {
     // const [ArtistsClickCount, setACount] = useState(0);
@@ -7,7 +8,7 @@ export default function TopBar({ STATE }) {
     var ArtistsNow = false;
     var AlbumsNow = false;
     var Skip = 0;
-    var AllowSeekDur = false;
+    localStorage.setItem("Play", true);
     localStorage.setItem("SE", false);
     useEffect(() => {
         if (document.getElementById("SongsContainer").style.display != "none") {
@@ -188,14 +189,18 @@ export default function TopBar({ STATE }) {
 
     let rAF = null;
     const whilePlaying = () => {
-        document.getElementById("CurrentTime").innerHTML = ConvertElaspedTime(document.getElementById("Song1").currentTime);
-        if (AllowSeekDur === "false") {
+        if (JSON.parse(localStorage.getItem("Play")) === true) {
+            document.getElementById("PlayButton").style.display = "none";
+            document.getElementById("PauseButton").style.display = "block";
+            document.getElementById("OverlayPlayButton").style.display = "none";
+            document.getElementById("OverlayPauseButton").style.display = "block";
             document.getElementById("SeekDuration").innerHTML = "0:00";
+            setTimeout(() => {
+                document.getElementById("SeekDuration").innerHTML = ConvertElaspedTime(document.getElementById("Song1").duration);
+            }, 3000);
+            localStorage.setItem("Play", false);
         }
-        setTimeout(() => {
-            AllowSeekDur = true;
-            document.getElementById("SeekDuration").innerHTML = ConvertElaspedTime(document.getElementById("Song1").duration);
-        },3000);
+        document.getElementById("CurrentTime").innerHTML = ConvertElaspedTime(document.getElementById("Song1").currentTime);
         document.getElementById("SeekSlider").max = Math.floor(document.getElementById("Song1").duration);
         document.getElementById("SeekSlider").value = document.getElementById("Song1").currentTime;
         document.getElementById("OverlayCurrentTime").innerHTML = ConvertElaspedTime(document.getElementById("Song1").currentTime);
@@ -216,10 +221,6 @@ export default function TopBar({ STATE }) {
 
     const PlayButClick = () => {
         cancelAnimationFrame(rAF);
-        document.getElementById("PlayButton").style.display = "none";
-        document.getElementById("PauseButton").style.display = "block";
-        document.getElementById("OverlayPlayButton").style.display = "none";
-        document.getElementById("OverlayPauseButton").style.display = "block";
         document.getElementById("Song1").play();
         requestAnimationFrame(whilePlaying);
     }
@@ -240,7 +241,7 @@ export default function TopBar({ STATE }) {
                     // console.log(StoreE[localStorage.getItem("IS")]);
                     document.getElementById("NoLatest").style.display = "none";
                     document.getElementById("filesToUpload").style.display = "none";
-                    document.getElementById("filesToUploadLoader").style.display = "block";
+                        document.getElementById("filesToUploadLoader").style.display = "block";
                     Skip += 1;
                     var tags = tag.tags;
                     const reader = new FileReader();
@@ -253,9 +254,11 @@ export default function TopBar({ STATE }) {
                             });
                             setTimeout(() => {
                                 child7.innerHTML = ConvertElaspedTime(document.getElementById("Song1Dur").duration);
-                                document.getElementById("filesToUpload").style.display = "block";
-                    document.getElementById("filesToUploadLoader").style.display = "none";
-                            },1000);
+                                if (document.getElementById("SongsContainer").style.display != "none") {
+                                    document.getElementById("filesToUpload").style.display = "block";
+                                }
+                                document.getElementById("filesToUploadLoader").style.display = "none";
+                            }, 1000);
                         }, 1800);
                     }
                     reader.readAsDataURL(StoreE[Index]);
@@ -288,6 +291,7 @@ export default function TopBar({ STATE }) {
                             // console.log(str);
                             // document.getElementById("Song1").src = `data:${e.target.files.format}; base64, ${window.btoa(str)}`;
                             // console.log(`data:${e.target.files.format}; base64, ${window.btoa(str)}`);
+                            localStorage.setItem("Play", true);
                             PlayButClick();
                             // var aud = new Audio(str);
                             // aud.play();
@@ -301,10 +305,16 @@ export default function TopBar({ STATE }) {
                         for (var i = 0; i < data.length; i++) {
                             base64String += String.fromCharCode(data[i]);
                         }
+                        if (base64String == "") {
+                            document.getElementById("MA").src = DefaultIMG;
+                            document.getElementById("OverlayMA").src = DefaultIMG;
+                            document.getElementById("OverlayBGMA").src = DefaultIMG;  
+                        } else {
+                            document.getElementById("MA").src = `data:${data.format}; base64, ${window.btoa(base64String)}`;
+                            document.getElementById("OverlayMA").src = `data:${data.format}; base64, ${window.btoa(base64String)}`;
+                            document.getElementById("OverlayBGMA").src = `data:${data.format}; base64, ${window.btoa(base64String)}`;  
+                        }
                         // document.getElementById("MusicArt").style.background = "rgb(196, 188, 188) url(`data:${data.format}; base64, ${window.btoa(base64String)}`) 0 0 no-repeat";
-                        document.getElementById("MA").src = `data:${data.format}; base64, ${window.btoa(base64String)}`;
-                        document.getElementById("OverlayMA").src = `data:${data.format}; base64, ${window.btoa(base64String)}`;
-                        document.getElementById("OverlayBGMA").src = `data:${data.format}; base64, ${window.btoa(base64String)}`;
                         // document.getElementById("Song1").src = URL.createObjectURL(e.target.files[i]);
                         // console.log(`data:${data.format}; base64, ${window.btoa(base64String)}`);
                         document.getElementById("SongTitle").innerHTML = tags.title;
@@ -366,7 +376,7 @@ export default function TopBar({ STATE }) {
                         <hr id="hr1" />
                         <input name="filesToUpload[]" id="filesToUpload" type="file" onChange={FTU} />
                         <span id="filesToUploadLoader">Please Wait...</span>
-                        <span id="Latest">-Artists Who Just Released New Songs-</span>
+                        <span id="Latest">-Artists Who Released New Songs-</span>
                         <span id="Latest2">-Latest Albums-</span>
                         <hr id="hr2" />
                     </div>

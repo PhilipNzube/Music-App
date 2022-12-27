@@ -5711,6 +5711,7 @@ body {
     font-weight: bold;
     width: 100%;
     white-space: nowrap;
+    text-align: center;
   }
 
   #OverlaySongDetails{
@@ -5761,6 +5762,11 @@ body {
     height: 30%;
     width: 100%;
     background: rgba(43, 42, 42, 0.445);
+  }
+
+  #OverlayMainPlayerControls{
+    position: relative;
+    top:500px;
   }
 
   #OverlayMusicArt {
@@ -6464,7 +6470,7 @@ body {
 
 #OverlayMainPlayerControls{
   position: relative;
-  top:450px;
+  top:500px;
 }
 
   #OverlayMusicArt {
@@ -6804,7 +6810,7 @@ body {
 
   #OverlayMainPlayerControls{
     position: relative;
-    top:420px;
+    top:500px;
   }
 
   #OverlaySongDetails{

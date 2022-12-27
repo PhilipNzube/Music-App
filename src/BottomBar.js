@@ -36,6 +36,7 @@ export default function BottomBar() {
         document.getElementById("OverlaySeekSlider").value = 0;
         document.getElementById("OverlayCurrentTime").innerHTML = ConvertElaspedTime(document.getElementById("OverlaySeekSlider").value);
         document.getElementById("OverlaySeekDuration").innerHTML = ConvertElaspedTime(document.getElementById("Song1").duration);
+        localStorage.setItem("Play", true);
         rAF = requestAnimationFrame(whileEnded);
     }
 
@@ -269,7 +270,7 @@ export default function BottomBar() {
                             <div id="OverlayMuteVolumeImg" onClick={UnMute}></div>
                         </div>
                     </div>
-                    <img id="OverlayMA" src={DefaultIMG} alt=""/>
+                    <img id="OverlayMA" src={DefaultIMG} alt="Album Art"/>
                     <img id="OverlayBGMA" src={DefaultIMG} alt="" />
                     <div id="BottomBGMA"></div>
                 </div>
@@ -298,7 +299,7 @@ export default function BottomBar() {
                         <input id="VolumeSlider" type="range" step="0.1" min="0" max="1" onChange={SetVolume} />
                     </div>
                 </div>
-                <img id="MA" src={DefaultIMG} alt="" />
+                <img id="MA" src={DefaultIMG} alt="Album Art" />
             </div>
         </>
     )
