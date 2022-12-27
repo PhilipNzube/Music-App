@@ -24,8 +24,8 @@ this.addEventListener("install", (event) => {
                 '/static/media/Trippie%20Red%20Cover.43875b64aa09aee79ccd.jpg',
                 '/static/media/NoUserIcon.cafab3219dab5d0a44ae.png',
                 'static/media/PauseButton.dc0699633a71f4eee247.png',
-                '/static/js/main.34de1caf.js',
-                '/static/css/main.f4d9b464.css',
+                '/static/js/main.a750fb0b.js',
+                '/static/css/main.a86d0a69.css',
                 '/ICON.png',
                 '/ICON192.png',
                 '/ICON512.png',
@@ -36,7 +36,8 @@ this.addEventListener("install", (event) => {
     )
 })
 this.addEventListener("fetch", (event) => {
-    // if (!navigator.onLine) {
+    if (!navigator.onLine) {
+        console.log("OFFLINE FUCKERS!!!");
         event.respondWith(
             caches.match(event.request).then((resp) => {
                 if (resp) {
@@ -46,5 +47,7 @@ this.addEventListener("fetch", (event) => {
 
 
         )
-    // }
+    } else {
+        console.log("ONLINE FUCKERS!!!");
+    }
 })
