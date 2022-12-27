@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.f4d9b464.css",
-    "main.js": "/static/js/main.34de1caf.js",
+    "main.css": "/static/css/main.a86d0a69.css",
+    "main.js": "/static/js/main.a750fb0b.js",
     "static/media/FeelAlone.mp3": "/static/media/FeelAlone.048a0626fc01586d2f59.mp3",
     "static/media/PauseButton.png": "/static/media/PauseButton.dc0699633a71f4eee247.png",
     "static/media/Play Button Png For Player.png": "/static/media/Play Button Png For Player.fd6db6b317f58816649f.png",
@@ -23,11 +23,11 @@
     "static/media/NBACover.jpg": "/static/media/NBACover.67ef1d09d0f3ad1a48ae.jpg",
     "static/media/BackButton.png": "/static/media/BackButton.f472b14156a4ad1932a3.png",
     "index.html": "/index.html",
-    "main.f4d9b464.css.map": "/static/css/main.f4d9b464.css.map",
-    "main.34de1caf.js.map": "/static/js/main.34de1caf.js.map"
+    "main.a86d0a69.css.map": "/static/css/main.a86d0a69.css.map",
+    "main.a750fb0b.js.map": "/static/js/main.a750fb0b.js.map"
   },
   "entrypoints": [
-    "static/css/main.f4d9b464.css",
-    "static/js/main.34de1caf.js"
+    "static/css/main.a86d0a69.css",
+    "static/js/main.a750fb0b.js"
   ]
 }
