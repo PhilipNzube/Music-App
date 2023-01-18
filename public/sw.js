@@ -12,6 +12,7 @@ this.addEventListener("install", (event) => {
                 '/static/media/NextSeek.f8bcd9fc74ce921c86eb.png',
                 '/static/media/Play%20Button%20Png%20For%20Player.fd6db6b317f58816649f.png',
                 '/static/media/Volume.281ffbb19d41b302d5c7.png',
+                '/static/media/MuteVolume.17e42bba0f6b5de4a4bc.png',
                 '/static/media/NicePng_search-button-png-transparent_8539483.1f2ac9129aa7369a76e5.png',
                 '/static/media/DreamVilleCover.17bea29535379ae7aeb1.jpg',
                 '/static/media/DJKhalidCover.5f80b8d1306687dc5af9.jpg',
@@ -37,7 +38,7 @@ this.addEventListener("install", (event) => {
 })
 this.addEventListener("fetch", (event) => {
     if (!navigator.onLine) {
-        console.log("OFFLINE FUCKERS!!!");
+        console.log("OFFLINE!!!");
         event.respondWith(
             caches.match(event.request).then((resp) => {
                 if (resp) {
@@ -48,6 +49,6 @@ this.addEventListener("fetch", (event) => {
 
         )
     } else {
-        console.log("ONLINE FUCKERS!!!");
+        console.log("ONLINE!!!");
     }
 })
